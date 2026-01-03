@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { urlFor } from '@/lib/sanity';
 import type { Service } from '@/lib/sanity';
@@ -134,7 +135,7 @@ const Services = ({ services: sanityServices, locations }: ServicesProps) => {
     };
 
     // Use Sanity services if available, otherwise fallback to hardcoded
-    const displayServices = sanityServices && sanityServices.length > 0 
+    const displayServices = sanityServices && sanityServices.length > 0
         ? sanityServices.map(service => ({
             icon: iconMap[service.icon || 'package'] || PackageIcon,
             title: service.title,
@@ -222,7 +223,7 @@ const Services = ({ services: sanityServices, locations }: ServicesProps) => {
                         <div className={styles.locationsContent}>
                             <h3 className={styles.locationsTitle}>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                                 </svg>
                                 We Serve Across Multiple Cities
                             </h3>
@@ -239,6 +240,16 @@ const Services = ({ services: sanityServices, locations }: ServicesProps) => {
                         </div>
                     </div>
                 )}
+
+                <div className={styles.viewAllWrapper}>
+                    <Link href="/services" className={styles.viewAllBtn}>
+                        View All Services
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </Link>
+                </div>
             </div>
 
             {/* Background decoration */}
