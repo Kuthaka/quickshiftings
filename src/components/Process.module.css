@@ -1,0 +1,399 @@
+.process {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #fafbfc 0%, white 50%, #fafbfc 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.process::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(13, 71, 161, 0.1) 20%, rgba(13, 71, 161, 0.1) 80%, transparent 100%);
+    z-index: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sectionLabel {
+    display: inline-block;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, rgba(13, 71, 161, 0.05) 0%, rgba(33, 150, 243, 0.05) 100%);
+    color: var(--primary-blue);
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 1px solid rgba(13, 71, 161, 0.1);
+}
+
+.title {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    font-family: 'Outfit', sans-serif;
+    color: var(--dark-text);
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.title span {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.stepsContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.stepsContainer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.step {
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stepsContainer.visible .step {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stepCard {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(13, 71, 161, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.stepCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-primary);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step:hover .stepCard {
+    box-shadow: 0 12px 40px rgba(13, 71, 161, 0.15);
+    transform: translateX(8px);
+    border-color: rgba(13, 71, 161, 0.15);
+}
+
+.step:hover .stepCard::before {
+    transform: scaleY(1);
+}
+
+.stepHeader {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    align-items: start;
+    gap: 20px;
+}
+
+.stepIconWrapper {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(13, 71, 161, 0.08) 0%, rgba(33, 150, 243, 0.08) 100%);
+    border-radius: 16px;
+    color: var(--primary-blue);
+    transition: all 0.4s ease;
+    flex-shrink: 0;
+}
+
+.step:hover .stepIconWrapper {
+    background: var(--gradient-primary);
+    color: white;
+    transform: rotate(5deg) scale(1.05);
+}
+
+.stepNumber {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, rgba(13, 71, 161, 0.1) 0%, rgba(33, 150, 243, 0.05) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    transition: all 0.4s ease;
+    align-self: center;
+}
+
+.step:hover .stepNumber {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stepBody {
+}
+
+.stepHighlight {
+    display: inline-block;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stepTitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.stepDesc {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.7;
+    max-width: 600px;
+}
+
+.connector {
+    position: absolute;
+    left: 35px;
+    top: 100%;
+    width: 2px;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.connectorLine {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(13, 71, 161, 0.3) 0%, rgba(13, 71, 161, 0.1) 100%);
+}
+
+.connectorDot {
+    width: 10px;
+    height: 10px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(13, 71, 161, 0.1);
+    z-index: 1;
+}
+
+.ctaBox {
+    background: var(--gradient-primary);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    box-shadow: 0 20px 60px rgba(13, 71, 161, 0.25);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.ctaBox::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.ctaBox.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ctaContent h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.ctaContent p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.ctaButtons {
+    display: flex;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+    .stepCard {
+        padding: 32px;
+    }
+
+    .stepHeader {
+        gap: 20px;
+    }
+
+    .stepIconWrapper {
+        width: 64px;
+        height: 64px;
+    }
+
+    .stepNumber {
+        font-size: 2.5rem;
+    }
+
+    .stepTitle {
+        font-size: 1.35rem;
+    }
+
+    .ctaBox {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px;
+    }
+
+    .ctaButtons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .process {
+        padding: 80px 0;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .header {
+        margin-bottom: 3rem;
+    }
+
+    .stepsContainer {
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .stepCard {
+        padding: 24px;
+    }
+
+    .stepHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .stepIconWrapper {
+        width: 56px;
+        height: 56px;
+    }
+
+    .stepNumber {
+        font-size: 2rem;
+        margin-left: 0;
+    }
+
+    .stepTitle {
+        font-size: 1.25rem;
+    }
+
+    .stepDesc {
+        font-size: 0.95rem;
+    }
+
+    .connector {
+        left: 27px;
+        height: 2rem;
+    }
+
+    .ctaBox {
+        padding: 32px 24px;
+    }
+
+    .ctaContent h3 {
+        font-size: 1.5rem;
+    }
+
+    .ctaContent p {
+        font-size: 1rem;
+    }
+
+    .ctaButtons {
+        width: 100%;
+        flex-direction: column;
+    }
+}

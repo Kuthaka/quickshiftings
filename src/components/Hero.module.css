@@ -1,0 +1,374 @@
+.hero {
+    min-height: 100vh;
+    /* Fallback */
+    min-height: 100dvh;
+    /* Dynamic viewport height for mobile browsers */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Background Image - Fixed/Sticky */
+.bgImage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Changed from 100vh to avoid issues */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    filter: brightness(1.1) saturate(1.1);
+}
+
+/* Vibrant Overlay */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(21, 170, 213, 0.25) 0%,
+            rgba(13, 71, 161, 0.45) 60%,
+            rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+/* Container */
+.container {
+    position: relative;
+    z-index: 3;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 160px 40px 100px;
+    text-align: center;
+    width: 100%;
+    /* Ensure content doesn't get cut off vertically on small landscape screens */
+    max-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content {
+    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Typography & Elements remain same until media queries */
+
+/* Premium Tagline */
+.tagline {
+    font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #4FE3FA;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px rgba(79, 227, 250, 0.4);
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
+}
+
+/* Title */
+.title {
+    font-family: var(--font-playfair), 'Playfair Display', serif;
+    font-size: clamp(3.2rem, 6.5vw, 5rem);
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
+}
+
+.highlight {
+    font-style: italic;
+    font-weight: 600;
+    background: linear-gradient(90deg, #4FE3FA 0%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    text-shadow: none;
+}
+
+/* Subtitle */
+.subtitle {
+    font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+    font-size: clamp(1.1rem, 1.6vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
+}
+
+/* CTAs */
+.ctas {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 4.5rem;
+    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s both;
+}
+
+.btnPrimary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 48px;
+    background: linear-gradient(135deg, #15AAD5 0%, #0077B6 100%);
+    color: white;
+    font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border-radius: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 25px rgba(21, 170, 213, 0.4);
+    overflow: hidden;
+}
+
+.btnPrimary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+
+.btnPrimary:hover::before {
+    left: 120%;
+    transition: 0.5s ease-in-out;
+}
+
+.btnPrimary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(21, 170, 213, 0.6);
+    background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+}
+
+.btnSecondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 48px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btnSecondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Trust Indicators */
+.trustIndicators {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.8rem;
+    font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: white;
+    padding: 12px 24px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s both;
+}
+
+.trustItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stars {
+    display: flex;
+    gap: 4px;
+}
+
+.divider {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.8rem;
+}
+
+/* Scroll Hint Removed */
+
+/* Responsive Fixes */
+@media (max-width: 900px) {
+    .container {
+        padding: 140px 30px 80px;
+    }
+
+    .title {
+        font-size: clamp(2.5rem, 8vw, 4.2rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        /* Reduced vertical padding to fit content better */
+        padding: 110px 24px 60px;
+        min-height: 100dvh;
+        justify-content: center;
+    }
+
+    .tagline {
+        font-size: 0.8rem;
+        letter-spacing: 3px;
+        margin-bottom: 1rem;
+    }
+
+    .title {
+        font-size: clamp(2.4rem, 10vw, 3.8rem);
+        margin-bottom: 1.2rem;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+
+    .ctas {
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 2.5rem;
+        width: 100%;
+        max-width: 380px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btnPrimary,
+    .btnSecondary {
+        width: 100%;
+        padding: 16px 36px;
+        font-size: 1rem;
+    }
+
+    /* Keep trust indicators cleaner on mobile */
+    .trustIndicators {
+        flex-wrap: wrap;
+        justify-content: center;
+        /* Keep background on mobile for legibility against busy images */
+        background: rgba(0, 0, 0, 0.3);
+        padding: 10px 20px;
+        gap: 1rem;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    .divider {
+        display: none;
+        /* Hide dividers on mobile to allow stacking if needed */
+    }
+
+    .trustItem {
+        background: rgba(255, 255, 255, 0.05);
+        /* Slight highlight for items */
+        padding: 4px 10px;
+        border-radius: 4px;
+        white-space: nowrap;
+    }
+
+    .scrollHint {
+        bottom: 20px;
+        opacity: 0.6;
+        transform: translateX(-50%) scale(0.9);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        /* Even tighter padding for small screens */
+        padding: 100px 20px 40px;
+    }
+
+    .tagline {
+        font-size: 0.7rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+        /* Fixed size for consistency */
+        margin-bottom: 1rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.8rem;
+    }
+
+    /* On very small screens, trust indicators might need to stack vertically or flow */
+    .trustIndicators {
+        gap: 8px;
+        padding: 8px 12px;
+        width: 100%;
+    }
+
+    .trustItem {
+        font-size: 0.8rem;
+    }
+
+    .stars svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    /* Allow scroll hint but make it tiny, or hide if really cramped */
+    @media (max-height: 700px) {
+        .scrollHint {
+            display: none;
+        }
+
+        .container {
+            justify-content: flex-start;
+            /* Top align if height is small */
+            padding-top: 110px;
+        }
+    }
+}
