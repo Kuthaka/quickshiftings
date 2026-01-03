@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import styles from './Footer.module.css';
 
 interface Service {
@@ -15,9 +17,10 @@ interface FooterProps {
 }
 
 const Footer = ({ phone, email, address, services }: FooterProps) => {
+    const pathname = usePathname();
     const displayPhone = phone || '+917730912913';
     const displayEmail = email || 'kpkumar123123@gmail.com';
-    const displayAddress = address || 'Nellore, Andhra Pradesh, India 524004';    
+    const displayAddress = address || 'Nellore, Andhra Pradesh, India 524004';
     const displayServices = services || [
         { title: 'House Shifting' },
         { title: 'Car Shifting' },
@@ -25,11 +28,15 @@ const Footer = ({ phone, email, address, services }: FooterProps) => {
         { title: 'Commercial Goods' },
         { title: 'Packing & Unpacking' },
         { title: 'Loading & Unloading' }
-    ];    
-    const scrollToSection = (href: string) => {
-        const element = document.querySelector(href);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+    ];
+
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (href.startsWith('#') && pathname === '/') {
+            e.preventDefault();
+            const element = document.querySelector(href);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     };
 
@@ -79,10 +86,18 @@ const Footer = ({ phone, email, address, services }: FooterProps) => {
                     <div className={styles.linksCol}>
                         <h3 className={styles.colTitle}>Quick Links</h3>
                         <ul className={styles.linksList}>
-                            <li><a onClick={() => scrollToSection('#home')}>Home</a></li>
-                            <li><a onClick={() => scrollToSection('#about')}>About Us</a></li>
-                            <li><a onClick={() => scrollToSection('#services')}>Services</a></li>
-                            <li><a onClick={() => scrollToSection('#process')}>How We Work</a></li>
+                            <li>
+                                <Link href="/#home" onClick={(e) => handleNavClick(e, '#home')}>Home</Link>
+                            </li>
+                            <li>
+                                <Link href="/about">About Us</Link>
+                            </li>
+                            <li>
+                                <Link href="/services">Services</Link>
+                            </li>
+                            <li>
+                                <Link href="/#process" onClick={(e) => handleNavClick(e, '#process')}>How We Work</Link>
+                            </li>
                         </ul>
                     </div>
 
@@ -92,7 +107,9 @@ const Footer = ({ phone, email, address, services }: FooterProps) => {
                         <ul className={styles.linksList}>
                             {displayServices.map((service) => (
                                 <li key={service.title}>
-                                    <a onClick={() => scrollToSection('#services')}>{service.title}</a>
+                                    <Link href="/#services" onClick={(e) => handleNavClick(e, '#services')}>
+                                        {service.title}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

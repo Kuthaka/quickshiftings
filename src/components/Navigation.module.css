@@ -13,8 +13,8 @@
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), 
-                0 1px 0 rgba(255, 255, 255, 0.3) inset;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1),
+        0 1px 0 rgba(255, 255, 255, 0.3) inset;
     padding: 0.85rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -76,6 +76,7 @@
     padding: 0.5rem 0;
     transition: all 0.3s ease;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: inline-block;
 }
 
 .nav.scrolled .navLink {
@@ -97,6 +98,7 @@
     background: #15AAD5;
     box-shadow: 0 0 8px rgba(21, 170, 213, 0.6);
     transition: width 0.3s ease;
+    z-index: 10;
 }
 
 .navLink:hover {

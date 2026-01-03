@@ -2,11 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import styles from './Navigation.module.css';
 
 const Navigation = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -16,46 +19,49 @@ const Navigation = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navLinks: Array<{href: string; label: string; external?: boolean}> = [
+    const navLinks = [
         { href: '#home', label: 'Home' },
-        { href: '#about', label: 'About' },
-        { href: '#services', label: 'Services' },
+        { href: '/about', label: 'About' },
+        { href: '/services', label: 'Services' },
         { href: '#process', label: 'How We Work' },
-        { href: '/blog', label: 'Blog', external: true },
+        { href: '/blog', label: 'Blog' },
         { href: '#contact', label: 'Contact' },
     ];
 
-    const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-        e.preventDefault();
-        const element = document.querySelector(href);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-            setIsMobileMenuOpen(false);
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        setIsMobileMenuOpen(false);
+
+        if (href.startsWith('#') && pathname === '/') {
+            e.preventDefault();
+            const element = document.querySelector(href);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     };
 
     return (
         <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
             <div className={styles.container}>
-                <a href="#home" className={styles.logo} onClick={(e) => scrollToSection(e, '#home')}>
+                <Link
+                    href="/#home"
+                    className={styles.logo}
+                    onClick={(e) => handleNavClick(e, '#home')}
+                >
                     <span className={styles.logoText}>Quick<span>Shiftings</span></span>
                     <Image src="/logo.png" alt="Quick Shiftings" width={50} height={50} className={styles.logoImage} />
-                </a>
+                </Link>
 
                 <div className={styles.navLinks}>
                     {navLinks.map((link) => (
-                        <a
+                        <Link
                             key={link.href}
-                            href={link.href}
+                            href={link.href.startsWith('#') ? `/${link.href}` : link.href}
                             className={styles.navLink}
-                            onClick={(e) => {
-                                if (!link.external) {
-                                    scrollToSection(e, link.href);
-                                }
-                            }}
+                            onClick={(e) => handleNavClick(e, link.href)}
                         >
                             {link.label}
-                        </a>
+                        </Link>
                     ))}
                 </div>
 
@@ -79,20 +85,14 @@ const Navigation = () => {
 
             <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}>
                 {navLinks.map((link) => (
-                    <a
+                    <Link
                         key={link.href}
-                        href={link.href}
+                        href={link.href.startsWith('#') ? `/${link.href}` : link.href}
                         className={styles.mobileLink}
-                        onClick={(e) => {
-                            if (!link.external) {
-                                scrollToSection(e, link.href);
-                            } else {
-                                setIsMobileMenuOpen(false);
-                            }
-                        }}
+                        onClick={(e) => handleNavClick(e, link.href)}
                     >
                         {link.label}
-                    </a>
+                    </Link>
                 ))}
                 <a href="tel:+917730912913" className="btn btn-primary" style={{ marginTop: '1rem' }}>
                     Call Now
