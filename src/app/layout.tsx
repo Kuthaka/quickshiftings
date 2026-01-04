@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -23,6 +24,9 @@ export const metadata: Metadata = {
     description: "Your trusted partner for seamless and secure packing and moving services in Nellore.",
     type: "website",
   },
+  verification: {
+    google: "aSGdYPhLWHKHnxuWewIpJ7GBI9mgJWFVJxzHR8KT1po",
+  },
 };
 
 export default function RootLayout({
@@ -33,6 +37,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfair.variable} ${dmSans.variable}`}>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-V7YY0LCYVH"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-V7YY0LCYVH');
+          `}
+        </Script>
         {children}
       </body>
     </html>
