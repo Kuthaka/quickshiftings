@@ -20,7 +20,7 @@ const Navigation = () => {
     }, []);
 
     const navLinks = [
-        { href: '#home', label: 'Home' },
+        { href: '/', label: 'Home' },
         { href: '/about', label: 'About' },
         { href: '/services', label: 'Services' },
         { href: '#process', label: 'How We Work' },
@@ -44,9 +44,9 @@ const Navigation = () => {
         <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
             <div className={styles.container}>
                 <Link
-                    href="/#home"
+                    href="/"
                     className={styles.logo}
-                    onClick={(e) => handleNavClick(e, '#home')}
+                    onClick={(e) => handleNavClick(e, '/')}
                 >
                     <span className={styles.logoText}>Quick<span>Shiftings</span></span>
                     <Image src="/logo.png" alt="Quick Shiftings" width={50} height={50} className={styles.logoImage} />
