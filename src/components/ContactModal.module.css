@@ -1,0 +1,180 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Changed from center to allow scrolling of tall modals */
+    padding: 10px;
+    /* Reduced padding */
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+    overflow-y: auto;
+    /* Allow overlay to scroll */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    background: white;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    /* max-height: 90vh; Removed to let it grow */
+    /* overflow-y: auto; Removed internal scroll */
+    margin: auto;
+    /* Vertically centers when space allows */
+    transform: scale(0.9);
+    opacity: 0;
+    animation: scaleIn 0.3s 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes scaleIn {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.closeButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #f1f5f9;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #64748b;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.closeButton:hover {
+    background: #e2e8f0;
+    color: #ef4444;
+}
+
+.modalHeader {
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+    border-radius: 20px 20px 0 0;
+}
+
+.title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin: 0.5rem 0 0;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.modalBody {
+    padding: 1.5rem;
+}
+
+.formGroup {
+    margin-bottom: 1rem;
+}
+
+.label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #475569;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.input,
+.select,
+.textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s;
+    font-family: inherit;
+    color: #334155;
+    background: white;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+    outline: none;
+    border-color: #15AAD5;
+    box-shadow: 0 0 0 3px rgba(21, 170, 213, 0.1);
+}
+
+.textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.submitBtn {
+    width: 100%;
+    padding: 0.9rem;
+    background: #25D366;
+    /* WhatsApp Green */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.submitBtn:hover {
+    background: #1ebc59;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+}
+
+.submitBtn:active {
+    transform: translateY(0);
+}
+
+.btnIcon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .modal {
+        max-width: 100%;
+        margin: 1rem;
+        max-height: calc(100vh - 2rem);
+    }
+}

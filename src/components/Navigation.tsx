@@ -5,11 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Navigation.module.css';
+import ContactModal from './ContactModal';
 
 const Navigation = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
+    const [isContactModalOpen, setIsContactModalOpen] = useState(false);
     const pathname = usePathname();
 
     useEffect(() => {
@@ -42,6 +44,12 @@ const Navigation = () => {
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         setIsMobileMenuOpen(false);
+
+        if (href === '#contact') {
+            e.preventDefault();
+            setIsContactModalOpen(true);
+            return;
+        }
 
         if (href.startsWith('#') && pathname === '/') {
             e.preventDefault();
@@ -164,6 +172,11 @@ const Navigation = () => {
                     Call Now
                 </a>
             </div>
+
+            <ContactModal
+                isOpen={isContactModalOpen}
+                onClose={() => setIsContactModalOpen(false)}
+            />
         </nav>
     );
 };
