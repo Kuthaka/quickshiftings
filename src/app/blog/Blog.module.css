@@ -27,16 +27,23 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, 
-    rgba(13, 71, 161, 0.92) 0%, 
-    rgba(21, 170, 213, 0.88) 50%,
-    rgba(79, 227, 250, 0.85) 100%);
+  background: linear-gradient(135deg,
+      rgba(13, 71, 161, 0.92) 0%,
+      rgba(21, 170, 213, 0.88) 50%,
+      rgba(79, 227, 250, 0.85) 100%);
   animation: pulse 8s ease-in-out infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 .heroContent {
@@ -92,6 +99,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -265,6 +273,7 @@
   line-height: 1.6;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

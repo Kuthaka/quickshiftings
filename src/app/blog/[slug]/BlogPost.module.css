@@ -17,10 +17,10 @@
 .heroBackground {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, 
-    rgba(13, 71, 161, 0.92) 0%, 
-    rgba(21, 170, 213, 0.88) 50%,
-    rgba(79, 227, 250, 0.82) 100%);
+  background: linear-gradient(135deg,
+      rgba(13, 71, 161, 0.92) 0%,
+      rgba(21, 170, 213, 0.88) 50%,
+      rgba(79, 227, 250, 0.82) 100%);
   z-index: 1;
 }
 
@@ -40,12 +40,10 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(13, 71, 161, 0.4) 0%,
-    rgba(13, 71, 161, 0.7) 50%,
-    rgba(13, 71, 161, 0.85) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(13, 71, 161, 0.4) 0%,
+      rgba(13, 71, 161, 0.7) 50%,
+      rgba(13, 71, 161, 0.85) 100%);
   z-index: 1;
 }
 
@@ -62,6 +60,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -242,6 +241,7 @@
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -553,11 +553,9 @@
 .relatedImageOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(13, 71, 161, 0.3) 100%
-  );
+  background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(13, 71, 161, 0.3) 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 1;
@@ -623,6 +621,7 @@
   margin-bottom: 20px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
