@@ -30,21 +30,16 @@ const Navigation = () => {
         };
     }, [pathname]);
 
-    const navLinks = [
+    type NavLink = {
+        href: string;
+        label: string;
+        subItems?: { href: string; label: string }[];
+    };
+
+    const navLinks: NavLink[] = [
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About' },
-        {
-            href: '/services',
-            label: 'Services',
-            subItems: [
-                { href: '/services', label: 'House Shifting' },
-                { href: '/services', label: 'Car Shifting' },
-                { href: '/services', label: 'Bike Shifting' },
-                { href: '/services', label: 'Commercial Goods' },
-                { href: '/services', label: 'Packing & Unpacking' },
-                { href: '/services', label: 'Loading & Unloading' },
-            ]
-        },
+        { href: '/services', label: 'Services' },
         { href: '#process', label: 'How We Work' },
         { href: '/blog', label: 'Blog' },
         { href: '#contact', label: 'Contact' },
