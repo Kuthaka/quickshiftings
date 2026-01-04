@@ -16,12 +16,12 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Quick Shiftings - Professional Relocation Services in Nellore",
+  title: "Quick Shiftings",
   description: "Quick Shiftings in Nellore offers professional and affordable moving services. 10+ years of experience in house shifting, car transport, and commercial relocations.",
   keywords: "movers and packers, relocation services, house shifting, car transport, Nellore movers, Nellore packers, quick shiftings, quick shift, quickshiftings, quickshift, quickshifting, quick shifting",
   openGraph: {
-    title: "Quick Shiftings - Professional Relocation Services",
-    description: "Your trusted partner for seamless and secure packing and moving services in Nellore.",
+    title: "Quick Shiftings",
+    description: "Quick Shiftings in Nellore offers professional and affordable moving services. 10+ years of experience in house shifting, car transport, and commercial relocations.",
     type: "website",
   },
   verification: {
