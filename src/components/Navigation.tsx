@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import styles from './Navigation.module.css';
 import ContactModal from './ContactModal';
 
@@ -45,22 +45,29 @@ const Navigation = () => {
         { href: '#contact', label: 'Contact' },
     ];
 
-    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const router = useRouter();
+
+    const handleNavClick = (e: React.MouseEvent<HTMLElement>, href: string) => {
         setIsMobileMenuOpen(false);
 
         if (href === '#contact') {
-            e.preventDefault();
             setIsContactModalOpen(true);
             return;
         }
 
-        if (href.startsWith('#') && pathname === '/') {
-            e.preventDefault();
-            const element = document.querySelector(href);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+        if (href.startsWith('#')) {
+            if (pathname === '/') {
+                const element = document.querySelector(href);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            } else {
+                router.push(`/${href}`);
             }
+            return;
         }
+
+        router.push(href);
     };
 
     const toggleMobileDropdown = (label: string) => {
@@ -70,49 +77,52 @@ const Navigation = () => {
     return (
         <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
             <div className={styles.container}>
-                <Link
-                    href="/"
+                <span
                     className={styles.logo}
                     onClick={(e) => handleNavClick(e, '/')}
+                    style={{ cursor: 'pointer' }}
                 >
                     <span className={styles.logoText}>Quick<span>Shiftings</span></span>
                     <Image src="/logo.png" alt="Quick Shiftings" width={50} height={50} className={styles.logoImage} />
-                </Link>
+                </span>
 
                 <div className={styles.navLinks}>
                     {navLinks.map((link) => (
                         link.subItems ? (
                             <div key={link.href} className={styles.dropdownContainer}>
-                                <Link
-                                    href={link.href}
+                                <span
                                     className={`${styles.navLink} ${styles.hasDropdown}`}
                                     onClick={(e) => handleNavClick(e, link.href)}
+                                    style={{ cursor: 'pointer' }}
                                 >
                                     {link.label}
                                     <span style={{ fontSize: '0.6em', marginLeft: '4px' }}>▼</span>
-                                </Link>
+                                </span>
                                 <div className={styles.dropdownMenu}>
                                     {link.subItems.map((subItem) => (
-                                        <Link
+                                        <span
                                             key={subItem.label}
-                                            href={subItem.href}
                                             className={styles.dropdownItem}
-                                            onClick={() => setIsMobileMenuOpen(false)}
+                                            onClick={() => {
+                                                setIsMobileMenuOpen(false);
+                                                router.push(subItem.href);
+                                            }}
+                                            style={{ cursor: 'pointer' }}
                                         >
                                             {subItem.label}
-                                        </Link>
+                                        </span>
                                     ))}
                                 </div>
                             </div>
                         ) : (
-                            <Link
+                            <span
                                 key={link.href}
-                                href={link.href.startsWith('#') ? `/${link.href}` : link.href}
                                 className={styles.navLink}
                                 onClick={(e) => handleNavClick(e, link.href)}
+                                style={{ cursor: 'pointer' }}
                             >
                                 {link.label}
-                            </Link>
+                            </span>
                         )
                     ))}
                 </div>
@@ -149,26 +159,29 @@ const Navigation = () => {
                             </div>
                             <div className={`${styles.mobileDropdown} ${activeMobileDropdown === link.label ? styles.open : ''}`}>
                                 {link.subItems.map((subItem) => (
-                                    <Link
+                                    <span
                                         key={subItem.label}
-                                        href={subItem.href}
                                         className={styles.mobileDropdownItem}
-                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        onClick={() => {
+                                            setIsMobileMenuOpen(false);
+                                            router.push(subItem.href);
+                                        }}
+                                        style={{ cursor: 'pointer' }}
                                     >
                                         {subItem.label}
-                                    </Link>
+                                    </span>
                                 ))}
                             </div>
                         </div>
                     ) : (
-                        <Link
+                        <span
                             key={link.href}
-                            href={link.href.startsWith('#') ? `/${link.href}` : link.href}
                             className={styles.mobileLink}
                             onClick={(e) => handleNavClick(e, link.href)}
+                            style={{ cursor: 'pointer' }}
                         >
                             {link.label}
-                        </Link>
+                        </span>
                     )
                 ))}
                 <a href="tel:+917730912913" className="btn btn-primary" style={{ marginTop: '1rem' }}>
