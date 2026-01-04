@@ -18,9 +18,17 @@ const Navigation = () => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
         };
+
+        handleScroll();
+        // Check again after a slight delay to catch hash scrolling
+        const timer = setTimeout(handleScroll, 100);
+
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            clearTimeout(timer);
+        };
+    }, [pathname]);
 
     const navLinks = [
         { href: '/', label: 'Home' },
