@@ -9,6 +9,7 @@ import styles from './Navigation.module.css';
 const Navigation = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
     const pathname = usePathname();
 
     useEffect(() => {
@@ -22,7 +23,18 @@ const Navigation = () => {
     const navLinks = [
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About' },
-        { href: '/services', label: 'Services' },
+        {
+            href: '/services',
+            label: 'Services',
+            subItems: [
+                { href: '/services', label: 'House Shifting' },
+                { href: '/services', label: 'Car Shifting' },
+                { href: '/services', label: 'Bike Shifting' },
+                { href: '/services', label: 'Commercial Goods' },
+                { href: '/services', label: 'Packing & Unpacking' },
+                { href: '/services', label: 'Loading & Unloading' },
+            ]
+        },
         { href: '#process', label: 'How We Work' },
         { href: '/blog', label: 'Blog' },
         { href: '#contact', label: 'Contact' },
@@ -40,6 +52,10 @@ const Navigation = () => {
         }
     };
 
+    const toggleMobileDropdown = (label: string) => {
+        setActiveMobileDropdown(activeMobileDropdown === label ? null : label);
+    };
+
     return (
         <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
             <div className={styles.container}>
@@ -54,14 +70,39 @@ const Navigation = () => {
 
                 <div className={styles.navLinks}>
                     {navLinks.map((link) => (
-                        <Link
-                            key={link.href}
-                            href={link.href.startsWith('#') ? `/${link.href}` : link.href}
-                            className={styles.navLink}
-                            onClick={(e) => handleNavClick(e, link.href)}
-                        >
-                            {link.label}
-                        </Link>
+                        link.subItems ? (
+                            <div key={link.href} className={styles.dropdownContainer}>
+                                <Link
+                                    href={link.href}
+                                    className={`${styles.navLink} ${styles.hasDropdown}`}
+                                    onClick={(e) => handleNavClick(e, link.href)}
+                                >
+                                    {link.label}
+                                    <span style={{ fontSize: '0.6em', marginLeft: '4px' }}>▼</span>
+                                </Link>
+                                <div className={styles.dropdownMenu}>
+                                    {link.subItems.map((subItem) => (
+                                        <Link
+                                            key={subItem.label}
+                                            href={subItem.href}
+                                            className={styles.dropdownItem}
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            {subItem.label}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        ) : (
+                            <Link
+                                key={link.href}
+                                href={link.href.startsWith('#') ? `/${link.href}` : link.href}
+                                className={styles.navLink}
+                                onClick={(e) => handleNavClick(e, link.href)}
+                            >
+                                {link.label}
+                            </Link>
+                        )
                     ))}
                 </div>
 
@@ -85,14 +126,39 @@ const Navigation = () => {
 
             <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}>
                 {navLinks.map((link) => (
-                    <Link
-                        key={link.href}
-                        href={link.href.startsWith('#') ? `/${link.href}` : link.href}
-                        className={styles.mobileLink}
-                        onClick={(e) => handleNavClick(e, link.href)}
-                    >
-                        {link.label}
-                    </Link>
+                    link.subItems ? (
+                        <div key={link.href} className={styles.mobileLinkWrapper}>
+                            <div
+                                className={styles.mobileLink}
+                                onClick={() => toggleMobileDropdown(link.label)}
+                                style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }}
+                            >
+                                {link.label}
+                                <span style={{ fontSize: '0.7em' }}>{activeMobileDropdown === link.label ? '▲' : '▼'}</span>
+                            </div>
+                            <div className={`${styles.mobileDropdown} ${activeMobileDropdown === link.label ? styles.open : ''}`}>
+                                {link.subItems.map((subItem) => (
+                                    <Link
+                                        key={subItem.label}
+                                        href={subItem.href}
+                                        className={styles.mobileDropdownItem}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        {subItem.label}
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    ) : (
+                        <Link
+                            key={link.href}
+                            href={link.href.startsWith('#') ? `/${link.href}` : link.href}
+                            className={styles.mobileLink}
+                            onClick={(e) => handleNavClick(e, link.href)}
+                        >
+                            {link.label}
+                        </Link>
+                    )
                 ))}
                 <a href="tel:+917730912913" className="btn btn-primary" style={{ marginTop: '1rem' }}>
                     Call Now

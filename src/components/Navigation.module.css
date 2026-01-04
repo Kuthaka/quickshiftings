@@ -247,3 +247,124 @@
         display: flex;
     }
 }
+
+/* Dropdown Styles */
+.dropdownContainer {
+    position: relative;
+    height: 100%;
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: white;
+    min-width: 260px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+}
+
+.dropdownContainer:hover .dropdownMenu,
+.dropdownContainer:focus-within .dropdownMenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdownItem {
+    display: block;
+    padding: 0.8rem 1rem;
+    color: #4a5568 !important;
+    /* Force dark color for dropdown items */
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    text-align: left;
+    text-shadow: none !important;
+    font-weight: 500;
+}
+
+.dropdownItem:hover {
+    background: #f0f9ff;
+    color: #15AAD5 !important;
+    padding-left: 1.25rem;
+}
+
+/* Arrow indicator for desktop */
+.hasDropdown {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.dropdownArrow {
+    font-size: 0.7em;
+    transition: transform 0.3s ease;
+}
+
+.dropdownContainer:hover .dropdownArrow {
+    transform: rotate(180deg);
+}
+
+
+/* Mobile Dropdown styles */
+.mobileDropdown {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.mobileDropdown.open {
+    display: flex;
+    animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobileDropdownItem {
+    padding: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.mobileDropdownItem:last-child {
+    border-bottom: none;
+}
+
+.mobileDropdownItem:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #15AAD5;
+}
+
+.mobileLinkWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
