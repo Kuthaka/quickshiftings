@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
 import Navigation from "@/components/Navigation";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://www.quickshiftings.in/',
+  },
+}
 import Hero from "@/components/Hero";
 import QuoteForm from "@/components/QuoteForm";
 import About from "@/components/About";
@@ -15,11 +22,11 @@ export default async function Home() {
   const services = await getServices();
   const blogPosts = await getBlogPosts(3);
   const faqs = await getFAQs();
-  
+
   return (
     <main>
       <Navigation />
-      <Hero 
+      <Hero
         title={siteSettings?.hero?.title}
         subtitle={siteSettings?.hero?.subtitle}
         ctaText={siteSettings?.hero?.ctaText}
@@ -33,7 +40,7 @@ export default async function Home() {
       <Testimonials />
       <BlogPosts posts={blogPosts} />
       <FAQ faqs={faqs} />
-      <Footer 
+      <Footer
         phone={siteSettings?.contactInfo?.phone}
         email={siteSettings?.contactInfo?.email}
         address={siteSettings?.contactInfo?.address}

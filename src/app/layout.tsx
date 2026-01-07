@@ -16,13 +16,25 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Quick Shiftings",
-  description: "Quick Shiftings in Nellore offers professional and affordable moving services. 10+ years of experience in house shifting, car transport, and commercial relocations.",
+  metadataBase: new URL("https://www.quickshiftings.in"),
+  title: "Quick Shiftings — Professional Packers & Movers in India",
+  description: "Quick Shiftings offers reliable, affordable, and secure packers & movers services across India. Get stress-free shifting solutions for home, office & vehicles.",
   keywords: "movers and packers, relocation services, house shifting, car transport, Nellore movers, Nellore packers, quick shiftings, quick shift, quickshiftings, quickshift, quickshifting, quick shifting",
   openGraph: {
-    title: "Quick Shiftings",
-    description: "Quick Shiftings in Nellore offers professional and affordable moving services. 10+ years of experience in house shifting, car transport, and commercial relocations.",
+    title: "Quick Shiftings — Professional Packers & Movers in India",
+    description: "Quick Shiftings offers reliable, affordable, and secure packers & movers services across India. Get stress-free shifting solutions for home, office & vehicles.",
+    url: "https://www.quickshiftings.in/",
     type: "website",
+    siteName: "Quick Shiftings",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://www.quickshiftings.in/path-to-your-preview-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Quick Shiftings — Packers & Movers",
+      },
+    ],
   },
   verification: {
     google: "aSGdYPhLWHKHnxuWewIpJ7GBI9mgJWFVJxzHR8KT1po",

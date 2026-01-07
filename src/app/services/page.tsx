@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
 import { getServices, getSiteSettings } from '@/lib/sanity-queries'
+
+export const metadata: Metadata = {
+    alternates: {
+        canonical: 'https://www.quickshiftings.in/services',
+    },
+}
 import { urlFor } from '@/lib/sanity'
 import Link from 'next/link'
 import Navigation from '@/components/Navigation'
