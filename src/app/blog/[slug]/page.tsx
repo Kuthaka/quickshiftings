@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { getBlogPostBySlug, getSiteSettings, getServices } from '@/lib/sanity-queries'
 import { urlFor } from '@/lib/sanity'
 import { notFound } from 'next/navigation'
@@ -6,6 +7,33 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import PortableTextRenderer from '@/components/PortableTextRenderer'
 import styles from './BlogPost.module.css'
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = await getBlogPostBySlug(slug)
+
+  if (!post) {
+    return {}
+  }
+
+  const title = post.seo?.metaTitle || post.title
+  const description = post.seo?.metaDescription || post.excerpt
+  const mainImage = post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      publishedTime: post.publishedAt,
+      authors: post.author?.name ? [post.author.name] : undefined,
+      images: mainImage ? [{ url: mainImage, width: 1200, height: 630, alt: title }] : undefined,
+    },
+    keywords: post.seo?.keywords
+  }
+}
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
@@ -48,7 +76,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className={styles.breadcrumbs}>
               <Link href="/">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M2 6L8 2l6 4v7a1 1 0 01-1 1H9v-5H7v5H3a1 1 0 01-1-1V6z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M2 6L8 2l6 4v7a1 1 0 01-1 1H9v-5H7v5H3a1 1 0 01-1-1V6z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
                 Home
               </Link>
@@ -100,15 +128,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <div className={styles.metaDetails}>
                 <div className={styles.metaItem}>
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                    <path d="M14.25 3H3.75A1.5 1.5 0 002.25 4.5v10.5A1.5 1.5 0 003.75 16.5h10.5a1.5 1.5 0 001.5-1.5V4.5A1.5 1.5 0 0014.25 3zM12 1.5v3M6 1.5v3M2.25 7.5h13.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M14.25 3H3.75A1.5 1.5 0 002.25 4.5v10.5A1.5 1.5 0 003.75 16.5h10.5a1.5 1.5 0 001.5-1.5V4.5A1.5 1.5 0 0014.25 3zM12 1.5v3M6 1.5v3M2.25 7.5h13.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   <span>{formattedDate}</span>
                 </div>
                 {post.readTime && (
                   <div className={styles.metaItem}>
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <circle cx="9" cy="9" r="7.5" stroke="currentColor" strokeWidth="1.5"/>
-                      <path d="M9 4.5V9l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="9" cy="9" r="7.5" stroke="currentColor" strokeWidth="1.5" />
+                      <path d="M9 4.5V9l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     <span>{post.readTime} min read</span>
                   </div>
@@ -187,14 +215,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <p className={styles.ctaText}>Discover expert insights and tips about moving and relocation</p>
             <Link href="/blog" className={styles.ctaButton}>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M12.5 5l-7.5 7.5 7.5 7.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12.5 5l-7.5 7.5 7.5 7.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               View All Articles
             </Link>
           </div>
         </div>
       </section>
-      <Footer 
+      <Footer
         phone={siteSettings?.contactInfo?.phone}
         email={siteSettings?.contactInfo?.email}
         address={siteSettings?.contactInfo?.address}
