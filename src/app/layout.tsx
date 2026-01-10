@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s | ${title}`,
     },
     description: description,
-    keywords: "movers and packers, relocation services, house shifting, car transport, Nellore movers, Nellore packers, quick shiftings, quick shift, quickshiftings, quickshift, quickshifting, quick shifting",
+    keywords: "movers and packers, relocation services, house shifting, car transport, Nellore movers, Nellore packers, quick shiftings, quick shift, quickshiftings, quickshift, quickshifting, quick shifting, Packers and movers in Nellore, Packers and movers Nellore, Best packers and movers in Nellore, Nellore packers and movers, Nellore local packers and movers, Packers and movers near me Nellore, Nellore to Hyderabad packers and movers, Nellore to Bangalore packers and movers, Nellore to Chennai packers and movers, Nellore to Vijayawada packers and movers, Packers and movers services in Nellore, Household shifting services Nellore, Office shifting services Nellore, Packing and unpacking services Nellore, Loading and unloading services Nellore, Furniture shifting services Nellore, Affordable packers and movers in Nellore, Cheap packers and movers Nellore, Best packers and movers for home shifting Nellore, Reliable packers and movers in Nellore",
     openGraph: {
       title: title,
       description: description,
