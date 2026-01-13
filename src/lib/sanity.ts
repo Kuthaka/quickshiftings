@@ -6,7 +6,7 @@ export const client = createClient({
   projectId: '2izf66hq',
   dataset: 'production',
   apiVersion: '2024-01-01',
-  useCdn: true, // Set to false if you want to ensure fresh data
+  useCdn: false, // Set to false if you want to ensure fresh data
 })
 
 // Helper function for generating image URLs

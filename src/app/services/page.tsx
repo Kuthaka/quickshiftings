@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { getServices, getSiteSettings } from '@/lib/sanity-queries'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
     alternates: {
         canonical: 'https://www.quickshiftings.in/services',
