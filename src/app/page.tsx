@@ -17,6 +17,9 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import { getSiteSettings, getServices, getBlogPosts, getFAQs } from "@/lib/sanity-queries";
 
+
+export const revalidate = 60
+
 export default async function Home() {
   const siteSettings = await getSiteSettings();
   const services = await getServices();

@@ -5,6 +5,8 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import styles from './Blog.module.css'
 
+export const revalidate = 60
+
 export default async function BlogPage() {
   const posts = await getBlogPosts()
   const categories = await getCategories()
@@ -21,7 +23,7 @@ export default async function BlogPage() {
             <div className={styles.breadcrumbs}>
               <Link href="/">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M2 6L8 2l6 4v7a1 1 0 01-1 1H9v-5H7v5H3a1 1 0 01-1-1V6z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M2 6L8 2l6 4v7a1 1 0 01-1 1H9v-5H7v5H3a1 1 0 01-1-1V6z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
                 Home
               </Link>
@@ -109,7 +111,7 @@ export default async function BlogPage() {
                       <div className={styles.readMore}>
                         <span>Read Article</span>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                          <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </div>
                     </div>
@@ -124,7 +126,7 @@ export default async function BlogPage() {
           </div>
         </div>
       </section>
-      <Footer 
+      <Footer
         phone={siteSettings?.contactInfo?.phone}
         email={siteSettings?.contactInfo?.email}
         address={siteSettings?.contactInfo?.address}
