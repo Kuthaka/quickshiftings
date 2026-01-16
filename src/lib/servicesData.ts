@@ -1,7 +1,7 @@
 export const servicesData = {
     intro: {
         title: "Comprehensive Transportation Services for Every Need",
-        description: "Our transportation services form the backbone of our professional moving operations, ensuring your belongings reach their destination safely and on schedule. We maintain a modern fleet of well-maintained vehicles ranging from compact vans for studio apartment moves to large trucks capable of handling entire office relocations or multi-bedroom homes."
+        description: "Quickshiftings offers reliable packers and movers and complete transportation services in Nellore and Tirupati. As professional packers and the moving experts, we specialize in home shifting services, IT relocation services, and local packers and movers for safe and hassle-free moves. Whether you need house shifting services near me, packers and movers in Nellore, or intercity relocation like Nellore to Bangalore, Chennai, Hyderabad, Vijayawada, Visakhapatnam, or Tirupati, we ensure easy shifting with expert handling. Recognized as the best packers and movers in Nellore and Tirupati, we deliver secure, timely, and affordable relocation solutions."
     },
     comparison: {
         title: "How It Differs from Normal Moving Services",
