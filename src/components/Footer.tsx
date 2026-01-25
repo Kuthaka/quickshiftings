@@ -49,15 +49,15 @@ const Footer = ({ phone, email, address, services }: FooterProps) => {
                         <div className={styles.logo}>
                             <Image
                                 src="/logo.png"
-                                alt="Quick Shiftings"
+                                alt="PackersHub"
                                 width={55}
                                 height={55}
                                 className={styles.logoImage}
                             />
-                            <span className={styles.logoText}>Quick<span>Shiftings</span></span>
+                            <span className={styles.logoText}>Packers<span>Hub</span></span>
                         </div>
                         <p className={styles.brandDesc}>
-                            Simplify your relocation with Quick Shiftings — a name you can rely on for
+                            Simplify your relocation with PackersHub — a name you can rely on for
                             seamless and secure packing and moving services.
                         </p>
                         <div className={styles.contactInfo}>
@@ -144,7 +144,7 @@ const Footer = ({ phone, email, address, services }: FooterProps) => {
                 </div>
 
                 <div className={styles.bottom}>
-                    <p>© 2024 Quick Shiftings. All rights reserved.</p>
+                    <p>© 2024 PackersHub. All rights reserved.</p>
                     <p>Professional Packers & Movers in Nellore</p>
                 </div>
             </div>

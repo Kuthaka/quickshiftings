@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: '/',
         },
-        sitemap: 'https://www.quickshiftings.in/sitemap.xml',
+        sitemap: 'https://www.packershub.in/sitemap.xml',
     }
 }

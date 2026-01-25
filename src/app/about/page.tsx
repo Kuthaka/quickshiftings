@@ -3,7 +3,7 @@ import { getSiteSettings, getServices } from '@/lib/sanity-queries'
 
 export const metadata: Metadata = {
     alternates: {
-        canonical: 'https://www.quickshiftings.in/about',
+        canonical: 'https://www.packershub.in/about',
     },
 }
 import Link from 'next/link'
@@ -105,7 +105,7 @@ export default async function AboutPage() {
                             <div className={styles.imageWrapper}>
                                 <img
                                     src="/services/commercial-goods.png" /* Using a good quality image */
-                                    alt="About Quick Shiftings"
+                                    alt="About PackersHub"
                                     className={styles.aboutImage}
                                 />
                                 <div className={styles.experienceBadge}>
@@ -120,7 +120,7 @@ export default async function AboutPage() {
                                 </h3>
 
                                 <p className={styles.description}>
-                                    Quick Shiftings is your reliable partner for all your relocation needs. With years of expertise,
+                                    PackersHub is your reliable partner for all your relocation needs. With years of expertise,
                                     we specialize in providing professional, reliable, and secure moving solutions for homes,
                                     offices, and commercial establishments.
                                 </p>

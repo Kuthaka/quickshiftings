@@ -19,27 +19,27 @@ const dmSans = DM_Sans({
 export async function generateMetadata(): Promise<Metadata> {
   const siteSettings = await getSiteSettings();
 
-  const title = siteSettings?.title || "Quick Shiftings — Professional Packers & Movers in India";
-  const description = siteSettings?.description || "Quick Shiftings offers reliable, affordable, and secure packers & movers services across India. Get stress-free shifting solutions for home, office & vehicles.";
+  const title = siteSettings?.title || "PackersHub — Professional Packers & Movers in India";
+  const description = siteSettings?.description || "PackersHub offers reliable, affordable, and secure packers & movers services across India. Get stress-free shifting solutions for home, office & vehicles.";
 
   return {
-    metadataBase: new URL("https://www.quickshiftings.in"),
+    metadataBase: new URL("https://www.packershub.in"),
     title: {
       default: title,
       template: `%s | ${title}`,
     },
     description: description,
-    keywords: "movers and packers, relocation services, house shifting, car transport, Nellore movers, Nellore packers, quick shiftings, quick shift, quickshiftings, quickshift, quickshifting, quick shifting, Packers and movers in Nellore, Packers and movers Nellore, Best packers and movers in Nellore, Nellore packers and movers, Nellore local packers and movers, Packers and movers near me Nellore, Nellore to Hyderabad packers and movers, Nellore to Bangalore packers and movers, Nellore to Chennai packers and movers, Nellore to Vijayawada packers and movers, Packers and movers services in Nellore, Household shifting services Nellore, Office shifting services Nellore, Packing and unpacking services Nellore, Loading and unloading services Nellore, Furniture shifting services Nellore, Affordable packers and movers in Nellore, Cheap packers and movers Nellore, Best packers and movers for home shifting Nellore, Reliable packers and movers in Nellore",
+    keywords: "movers and packers, relocation services, house shifting, car transport, Nellore movers, Nellore packers, packershub, packers hub, packershub.in, Packers and movers in Nellore, Packers and movers Nellore, Best packers and movers in Nellore, Nellore packers and movers, Nellore local packers and movers, Packers and movers near me Nellore, Nellore to Hyderabad packers and movers, Nellore to Bangalore packers and movers, Nellore to Chennai packers and movers, Nellore to Vijayawada packers and movers, Packers and movers services in Nellore, Household shifting services Nellore, Office shifting services Nellore, Packing and unpacking services Nellore, Loading and unloading services Nellore, Furniture shifting services Nellore, Affordable packers and movers in Nellore, Cheap packers and movers Nellore, Best packers and movers for home shifting Nellore, Reliable packers and movers in Nellore",
     openGraph: {
       title: title,
       description: description,
-      url: "https://www.quickshiftings.in/",
+      url: "https://www.packershub.in/",
       type: "website",
-      siteName: "Quick Shiftings",
+      siteName: "PackersHub",
       locale: "en_IN",
       images: [
         {
-          url: "https://www.quickshiftings.in/path-to-your-preview-image.jpg",
+          url: "https://www.packershub.in/path-to-your-preview-image.jpg",
           width: 1200,
           height: 630,
           alt: title,

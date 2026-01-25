@@ -1,7 +1,7 @@
 export const servicesData = {
     intro: {
         title: "Comprehensive Transportation Services for Every Need",
-        description: "Quickshiftings offers reliable packers and movers and complete transportation services in Nellore and Tirupati. As professional packers and the moving experts, we specialize in home shifting services, IT relocation services, and local packers and movers for safe and hassle-free moves. Whether you need house shifting services near me, packers and movers in Nellore, or intercity relocation like Nellore to Bangalore, Chennai, Hyderabad, Vijayawada, Visakhapatnam, or Tirupati, we ensure easy shifting with expert handling. Recognized as the best packers and movers in Nellore and Tirupati, we deliver secure, timely, and affordable relocation solutions."
+        description: "PackersHub offers reliable packers and movers and complete transportation services in Nellore and Tirupati. As professional packers and the moving experts, we specialize in home shifting services, IT relocation services, and local packers and movers for safe and hassle-free moves. Whether you need house shifting services near me, packers and movers in Nellore, or intercity relocation like Nellore to Bangalore, Chennai, Hyderabad, Vijayawada, Visakhapatnam, or Tirupati, we ensure easy shifting with expert handling. Recognized as the best packers and movers in Nellore and Tirupati, we deliver secure, timely, and affordable relocation solutions."
     },
     comparison: {
         title: "How It Differs from Normal Moving Services",
@@ -14,11 +14,11 @@ export const servicesData = {
             { aspect: "Risk", regular: "Low", emergency: "Medium (Managed by Experts)" }
         ]
     },
-    quickShifting: {
-        title: "Quick Shifting Services",
+    packersHub: {
+        title: "PackersHub Services",
         subtitle: "When time is critical, we move fast without compromising safety.",
         whyChoose: {
-            title: "When Should You Choose Quick Shifting Services?",
+            title: "When Should You Choose PackersHub Services?",
             points: [
                 "You have less than 48 hours to move",
                 "Your landlord gives sudden notice",
@@ -26,7 +26,7 @@ export const servicesData = {
                 "You must vacate due to safety or legal reasons",
                 "You want zero delays and minimal coordination"
             ],
-            note: "If time is your biggest constraint, quick shifting is not a luxury—it’s a necessity."
+            note: "If time is your biggest constraint, PackersHub is not a luxury—it’s a necessity."
         },
         types: [
             {
@@ -40,7 +40,7 @@ export const servicesData = {
                 features: ["Night or weekend shifting", "Minimal business downtime", "Secure IT equipment handling"]
             },
             {
-                title: "PG & Student Quick Shifting",
+                title: "PG & Student PackersHub",
                 features: ["Minimal luggage", "Shared vehicle options", "Budget-friendly emergency moves"]
             },
             {

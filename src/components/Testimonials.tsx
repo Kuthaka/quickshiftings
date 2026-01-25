@@ -23,13 +23,13 @@ const testimonials = [
         id: 1,
         name: 'Priya Sharma',
         rating: 5,
-        text: 'Quick Shiftings made our relocation from Hyderabad to Vizag seamless. Their attention to detail and professional handling of our belongings exceeded all expectations. Highly recommended!'
+        text: 'PackersHub made our relocation from Hyderabad to Vizag seamless. Their attention to detail and professional handling of our belongings exceeded all expectations. Highly recommended!'
     },
     {
         id: 2,
         name: 'Rajesh Kumar',
         rating: 5,
-        text: 'We\'ve used several moving companies before, but Quick Shiftings stands out. Their team was punctual, efficient, and treated our office equipment with utmost care. Will definitely use them again.'
+        text: 'We\'ve used several moving companies before, but PackersHub stands out. Their team was punctual, efficient, and treated our office equipment with utmost care. Will definitely use them again.'
     },
     {
         id: 3,
@@ -41,19 +41,19 @@ const testimonials = [
         id: 4,
         name: 'Venkatesh Rao',
         rating: 5,
-        text: 'Quick Shiftings handled our villa move from Vijayawada to Tirupati with exceptional care. Their premium service is worth every rupee. The team went above and beyond to ensure everything was perfect.'
+        text: 'PackersHub handled our villa move from Vijayawada to Tirupati with exceptional care. Their premium service is worth every rupee. The team went above and beyond to ensure everything was perfect.'
     },
     {
         id: 5,
         name: 'Lakshmi Devi',
         rating: 5,
-        text: 'Moving from Guntur to Hyderabad was stressful, but Quick Shiftings made it seamless! Their customer service is outstanding and the entire process was smooth and professional.'
+        text: 'Moving from Guntur to Hyderabad was stressful, but PackersHub made it seamless! Their customer service is outstanding and the entire process was smooth and professional.'
     },
     {
         id: 6,
         name: 'Srinivas Chowdary',
         rating: 5,
-        text: 'We relocated our entire office from Kakinada to Amaravati with Quick Shiftings. Their systematic approach, professional team, and transparent pricing made it a hassle-free experience. Truly exceptional service!'
+        text: 'We relocated our entire office from Kakinada to Amaravati with PackersHub. Their systematic approach, professional team, and transparent pricing made it a hassle-free experience. Truly exceptional service!'
     },
     {
         id: 7,
@@ -65,7 +65,7 @@ const testimonials = [
         id: 8,
         name: 'Ramesh Babu',
         rating: 5,
-        text: 'Quick Shiftings lived up to their name. Our interstate move from Chennai to Bangalore was handled flawlessly. Great communication and timely delivery. Highly satisfied with their service!'
+        text: 'PackersHub lived up to their name. Our interstate move from Chennai to Bangalore was handled flawlessly. Great communication and timely delivery. Highly satisfied with their service!'
     },
     {
         id: 9,
@@ -83,7 +83,7 @@ const testimonials = [
         id: 11,
         name: 'Deepika Murthy',
         rating: 5,
-        text: 'Moving my elderly parents was a big concern, but Quick Shiftings handled everything with such patience and care. They made what could have been a stressful experience completely smooth.'
+        text: 'Moving my elderly parents was a big concern, but PackersHub handled everything with such patience and care. They made what could have been a stressful experience completely smooth.'
     },
     {
         id: 12,
@@ -95,7 +95,7 @@ const testimonials = [
         id: 13,
         name: 'Meera Krishnan',
         rating: 5,
-        text: 'Best decision to choose Quick Shiftings for our villa relocation. They handled our antique furniture and delicate items with utmost care. Professional team with great attention to detail!'
+        text: 'Best decision to choose PackersHub for our villa relocation. They handled our antique furniture and delicate items with utmost care. Professional team with great attention to detail!'
     }
 ];
 
@@ -183,7 +183,7 @@ const Testimonials = () => {
         <section id="testimonials" className={styles.testimonials}>
             <div className={styles.decorativeShape1}></div>
             <div className={styles.decorativeShape2}></div>
-            
+
             <div className={styles.container}>
                 <div
                     ref={headerRef}

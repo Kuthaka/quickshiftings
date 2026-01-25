@@ -4,7 +4,7 @@ import Navigation from "@/components/Navigation";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.quickshiftings.in/',
+    canonical: 'https://www.packershub.in/',
   },
 }
 
@@ -38,18 +38,18 @@ export default async function Home() {
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://www.quickshiftings.in/#organization",
-        "name": "Quick Shiftings",
-        "url": "https://www.quickshiftings.in/",
-        "logo": "https://www.quickshiftings.in/assets/logo.png",
+        "@id": "https://www.packershub.in/#organization",
+        "name": "PackersHub",
+        "url": "https://www.packershub.in/",
+        "logo": "https://www.packershub.in/assets/logo.png",
         "telephone": siteSettings?.contactInfo?.phone,
         "email": siteSettings?.contactInfo?.email
       },
       {
         "@type": "LocalBusiness",
-        "@id": "https://www.quickshiftings.in/#localbusiness",
-        "name": "Quick Shiftings",
-        "url": "https://www.quickshiftings.in/",
+        "@id": "https://www.packershub.in/#localbusiness",
+        "name": "PackersHub",
+        "url": "https://www.packershub.in/",
         "telephone": siteSettings?.contactInfo?.phone,
         "address": {
           "@type": "PostalAddress",
@@ -60,7 +60,7 @@ export default async function Home() {
           "addressCountry": "IN"
         },
         "parentOrganization": {
-          "@id": "https://www.quickshiftings.in/#organization"
+          "@id": "https://www.packershub.in/#organization"
         }
       }
     ]

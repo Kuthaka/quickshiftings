@@ -80,7 +80,7 @@ const About = () => {
                         <div className={styles.imageWrapper}>
                             <img
                                 src="/services/commercial-goods.png"
-                                alt="About Quick Shiftings"
+                                alt="About PackersHub"
                                 className={styles.aboutImage}
                             />
                             <div className={styles.experienceBadge}>
@@ -99,7 +99,7 @@ const About = () => {
                             </h3>
 
                             <p className={styles.description}>
-                                Quick Shiftings is your reliable partner for all your relocation needs. With years of expertise,
+                                PackersHub is your reliable partner for all your relocation needs. With years of expertise,
                                 we specialize in providing professional, reliable, and secure moving solutions for homes,
                                 offices, and commercial establishments.
                             </p>

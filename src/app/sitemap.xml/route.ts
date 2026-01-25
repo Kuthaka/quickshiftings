@@ -1,7 +1,7 @@
 import { getBlogPosts } from '@/lib/sanity-queries'
 
 export async function GET() {
-    const baseUrl = 'https://www.quickshiftings.in'
+    const baseUrl = 'https://www.packershub.in'
     const posts = await getBlogPosts()
 
     const staticRoutes = [

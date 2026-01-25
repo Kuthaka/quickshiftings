@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
     alternates: {
-        canonical: 'https://www.quickshiftings.in/services',
+        canonical: 'https://www.packershub.in/services',
     },
 }
 import { urlFor } from '@/lib/sanity'
@@ -185,20 +185,20 @@ export default async function ServicesPage() {
                 </div>
             </section>
 
-            {/* Quick Shifting Services */}
+            {/* PackersHub Services */}
             <section className={styles.detailedSection}>
                 <div className={styles.container}>
                     <div className={styles.sectionHeader}>
-                        <h2 className={styles.sectionTitle}>{servicesData.quickShifting.title}</h2>
-                        <p className={styles.sectionSubtitle}>{servicesData.quickShifting.subtitle}</p>
+                        <h2 className={styles.sectionTitle}>{servicesData.packersHub.title}</h2>
+                        <p className={styles.sectionSubtitle}>{servicesData.packersHub.subtitle}</p>
                     </div>
 
                     <div className={styles.featureGrid}>
-                        {servicesData.quickShifting.types.map((type, idx) => (
+                        {servicesData.packersHub.types.map((type: any, idx: number) => (
                             <div key={idx} className={styles.featureCard}>
                                 <h3 className={styles.featureTitle}>{type.title}</h3>
                                 <ul className={styles.featureList}>
-                                    {(type.idealFor || type.features || []).map((item, i) => (
+                                    {(type.idealFor || type.features || []).map((item: any, i: number) => (
                                         <li key={i}>
                                             <svg className={styles.checkIcon} width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                                 <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
@@ -212,7 +212,7 @@ export default async function ServicesPage() {
                     </div>
                     <div className={styles.sectionCtaWrapper}>
                         <a
-                            href="https://wa.me/917730912913?text=Hi! I am interested in Quick Shifting services."
+                            href="https://wa.me/917730912913?text=Hi! I am interested in PackersHub services."
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.sectionCta}
