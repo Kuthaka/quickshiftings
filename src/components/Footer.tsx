@@ -54,7 +54,7 @@ const Footer = ({ phone, email, address, services }: FooterProps) => {
                                 height={55}
                                 className={styles.logoImage}
                             />
-                            <span className={styles.logoText}>Packers<span>Hub</span></span>
+                            <span className={styles.logoText}>PACKERS<span>HUB</span></span>
                         </div>
                         <p className={styles.brandDesc}>
                             Simplify your relocation with PackersHub — a name you can rely on for

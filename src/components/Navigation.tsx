@@ -75,7 +75,7 @@ const Navigation = () => {
                     className={styles.logo}
                     onClick={(e) => handleNavClick(e, '/')}
                 >
-                    <span className={styles.logoText}>Packers<span>Hub</span></span>
+                    <span className={styles.logoText}>PACKERS<span>HUB</span></span>
                     <Image src="/logo.png" alt="PackersHub" width={50} height={50} className={styles.logoImage} />
                 </Link>
 
