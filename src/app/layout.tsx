@@ -19,7 +19,7 @@ const dmSans = DM_Sans({
 export async function generateMetadata(): Promise<Metadata> {
   const siteSettings = await getSiteSettings();
 
-  const title = siteSettings?.title || "PackersHub — Professional Packers & Movers in India";
+  const title = siteSettings?.title || "PackersHub — Professional Packers & Movers in South India";
   const description = siteSettings?.description || "PackersHub offers reliable, affordable, and secure packers & movers services across India. Get stress-free shifting solutions for home, office & vehicles.";
 
   return {
@@ -39,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: "en_IN",
       images: [
         {
-          url: "https://www.packershub.in/path-to-your-preview-image.jpg",
+          url: "https://www.packershub.in/logo.png",
           width: 1200,
           height: 630,
           alt: title,
