@@ -14,7 +14,8 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
-        service: 'House Shifting',
+        fromFloor: 'Ground floor',
+        toFloor: 'Ground floor',
         from: '',
         to: '',
         message: ''
@@ -41,7 +42,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        const text = `Hi, I would like to enquire about moving services.%0A%0A*Details:*%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Service:* ${formData.service}%0A*From:* ${formData.from}%0A*To:* ${formData.to}%0A*Message:* ${formData.message}`;
+        const text = `Hi, I would like to enquire about moving services.%0A%0A*Details:*%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Floor (From):* ${formData.fromFloor}%0A*Floor (To):* ${formData.toFloor}%0A*Moving From:* ${formData.from}%0A*Moving To:* ${formData.to}%0A*Message:* ${formData.message}`;
 
         window.open(`https://wa.me/917730912913?text=${text}`, '_blank');
         onClose();
@@ -90,22 +91,42 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                         />
                     </div>
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="service">Service Type</label>
-                        <select
-                            id="service"
-                            name="service"
-                            className={styles.select}
-                            value={formData.service}
-                            onChange={handleChange}
-                        >
-                            <option value="House Shifting">House Shifting</option>
-                            <option value="Car Transport">Car Transport</option>
-                            <option value="Bike Transport">Bike Transport</option>
-                            <option value="Office Relocation">Office Relocation</option>
-                            <option value="Storage">Storage Services</option>
-                            <option value="Other">Other</option>
-                        </select>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                        <div className={styles.formGroup}>
+                            <label className={styles.label} htmlFor="fromFloor">Moving From (Floor)</label>
+                            <select
+                                id="fromFloor"
+                                name="fromFloor"
+                                className={styles.select}
+                                value={formData.fromFloor}
+                                onChange={handleChange}
+                            >
+                                <option value="Ground floor">Ground floor</option>
+                                <option value="1st floor">1st floor</option>
+                                <option value="2nd floor">2nd floor</option>
+                                <option value="3rd floor">3rd floor</option>
+                                <option value="4th floor">4th floor</option>
+                                <option value="5th floor">5th floor</option>
+                            </select>
+                        </div>
+
+                        <div className={styles.formGroup}>
+                            <label className={styles.label} htmlFor="toFloor">Moving To (Floor)</label>
+                            <select
+                                id="toFloor"
+                                name="toFloor"
+                                className={styles.select}
+                                value={formData.toFloor}
+                                onChange={handleChange}
+                            >
+                                <option value="Ground floor">Ground floor</option>
+                                <option value="1st floor">1st floor</option>
+                                <option value="2nd floor">2nd floor</option>
+                                <option value="3rd floor">3rd floor</option>
+                                <option value="4th floor">4th floor</option>
+                                <option value="5th floor">5th floor</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>

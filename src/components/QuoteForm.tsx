@@ -8,7 +8,8 @@ const QuoteForm = () => {
         name: '',
         phone: '',
         date: '',
-        type: '',
+        fromFloor: 'Ground floor',
+        toFloor: 'Ground floor',
         from: '',
         to: '',
         message: ''
@@ -22,7 +23,7 @@ const QuoteForm = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        const text = `Hi, I would like to get a quote.%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Date:* ${formData.date}%0A*Type:* ${formData.type}%0A*From:* ${formData.from}%0A*To:* ${formData.to}%0A*Message:* ${formData.message}`;
+        const text = `Hi, I would like to get a quote.%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Date:* ${formData.date}%0A*Floor (From):* ${formData.fromFloor}%0A*Floor (To):* ${formData.toFloor}%0A*From:* ${formData.from}%0A*To:* ${formData.to}%0A*Message:* ${formData.message}`;
 
         window.open(`https://wa.me/917730912913?text=${text}`, '_blank');
     };
@@ -131,25 +132,43 @@ const QuoteForm = () => {
                                 />
                             </div>
 
-                            <div className={`${styles.inputWrapper} ${styles.fullWidth}`}>
-                                <label htmlFor="type" className={styles.inputLabel}>Moving Type</label>
-                                <select
-                                    id="type"
-                                    name="type"
-                                    value={formData.type}
-                                    onChange={handleChange}
-                                    className={styles.input}
-                                    required
-                                >
-                                    <option value="">Select Moving Type</option>
-                                    <option value="1bhk">1 BHK</option>
-                                    <option value="2bhk">2 BHK</option>
-                                    <option value="3bhk">3 BHK</option>
-                                    <option value="villa">Villa</option>
-                                    <option value="office">Office</option>
-                                    <option value="car-transporting">Car Transporting</option>
-                                    <option value="bike-transporting">Bike Transporting</option>
-                                </select>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }} className={styles.fullWidth}>
+                                <div className={styles.inputWrapper}>
+                                    <label htmlFor="fromFloor" className={styles.inputLabel}>Moving From (Floor)</label>
+                                    <select
+                                        id="fromFloor"
+                                        name="fromFloor"
+                                        value={formData.fromFloor}
+                                        onChange={handleChange}
+                                        className={styles.input}
+                                        required
+                                    >
+                                        <option value="Ground floor">Ground floor</option>
+                                        <option value="1st floor">1st floor</option>
+                                        <option value="2nd floor">2nd floor</option>
+                                        <option value="3rd floor">3rd floor</option>
+                                        <option value="4th floor">4th floor</option>
+                                        <option value="5th floor">5th floor</option>
+                                    </select>
+                                </div>
+                                <div className={styles.inputWrapper}>
+                                    <label htmlFor="toFloor" className={styles.inputLabel}>Moving To (Floor)</label>
+                                    <select
+                                        id="toFloor"
+                                        name="toFloor"
+                                        value={formData.toFloor}
+                                        onChange={handleChange}
+                                        className={styles.input}
+                                        required
+                                    >
+                                        <option value="Ground floor">Ground floor</option>
+                                        <option value="1st floor">1st floor</option>
+                                        <option value="2nd floor">2nd floor</option>
+                                        <option value="3rd floor">3rd floor</option>
+                                        <option value="4th floor">4th floor</option>
+                                        <option value="5th floor">5th floor</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <div className={styles.inputWrapper}>
