@@ -37,31 +37,75 @@ export default async function Home() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": "https://www.packershub.in/#website",
+        "url": "https://www.packershub.in/",
+        "name": "PackersHub",
+        "description": "Professional Packers & Movers in South India",
+        "publisher": {
+          "@id": "https://www.packershub.in/#organization"
+        },
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.packershub.in/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        ],
+        "inLanguage": "en-IN"
+      },
+      {
         "@type": "Organization",
         "@id": "https://www.packershub.in/#organization",
         "name": "PackersHub",
         "url": "https://www.packershub.in/",
-        "logo": "https://www.packershub.in/assets/logo.png",
-        "telephone": siteSettings?.contactInfo?.phone,
-        "email": siteSettings?.contactInfo?.email
+        "logo": {
+          "@type": "ImageObject",
+          "inLanguage": "en-IN",
+          "@id": "https://www.packershub.in/#logo",
+          "url": "https://www.packershub.in/logo.png",
+          "contentUrl": "https://www.packershub.in/logo.png",
+          "width": 512,
+          "height": 512,
+          "caption": "PackersHub"
+        },
+        "image": {
+          "@id": "https://www.packershub.in/#logo"
+        },
+        "telephone": siteSettings?.contactInfo?.phone || "+917730912913",
+        "email": siteSettings?.contactInfo?.email || "kpkumar123123@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": siteSettings?.contactInfo?.address || "Nellore, Andhra Pradesh",
+          "addressLocality": "Nellore",
+          "addressRegion": "Andhra Pradesh",
+          "postalCode": "524004",
+          "addressCountry": "IN"
+        }
       },
       {
-        "@type": "LocalBusiness",
+        "@type": "ProfessionalService",
         "@id": "https://www.packershub.in/#localbusiness",
         "name": "PackersHub",
         "url": "https://www.packershub.in/",
-        "telephone": siteSettings?.contactInfo?.phone,
+        "telephone": siteSettings?.contactInfo?.phone || "+917730912913",
+        "priceRange": "₹₹",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": siteSettings?.contactInfo?.address,
-          "addressLocality": siteSettings?.contactInfo?.address,
-          "addressRegion": siteSettings?.contactInfo?.address,
-          "postalCode": siteSettings?.contactInfo?.address,
+          "streetAddress": siteSettings?.contactInfo?.address || "Nellore, Andhra Pradesh",
+          "addressLocality": "Nellore",
+          "addressRegion": "Andhra Pradesh",
+          "postalCode": "524004",
           "addressCountry": "IN"
         },
-        "parentOrganization": {
-          "@id": "https://www.packershub.in/#organization"
-        }
+        "image": "https://www.packershub.in/logo.png",
+        "areaServed": [
+          "Nellore", "Tirupati", "Hyderabad", "Chennai", "Bangalore", "Vijayawada", "Visakhapatnam", "Guntur", "Ongole"
+        ],
+        "knowsAbout": ["Packers and Movers", "House Shifting", "Car Transportation", "Office Relocation", "Cargo Services"]
       }
     ]
   };
@@ -69,8 +113,7 @@ export default async function Home() {
   return (
     <>
       {/* ✅ Schema Injection */}
-      <Script
-        id="schema-home"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(schema),

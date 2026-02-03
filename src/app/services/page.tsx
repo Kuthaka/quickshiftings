@@ -71,267 +71,298 @@ export default async function ServicesPage() {
         }))
         : fallbackServices;
 
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Our Moving Services",
+        "description": servicesData.intro.description,
+        "itemListElement": displayServices.map((service, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+                "@type": "Service",
+                "name": service.title,
+                "description": service.description,
+                "image": service.image,
+                "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "PackersHub",
+                    "url": "https://www.packershub.in/"
+                }
+            }
+        }))
+    };
+
     return (
-        <main className={styles.page}>
-            <Navigation />
+        <>
+            {/* ✅ Schema Injection */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(schema),
+                }}
+            />
+            <main className={styles.page}>
+                <Navigation />
 
-            <section className={styles.hero}>
-                <div className={styles.heroBackground}></div>
-                <div className={styles.heroContent}>
-                    <div className={styles.container}>
-                        <div className={styles.breadcrumbs}>
-                            <Link href="/">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M2 6L8 2l6 4v7a1 1 0 01-1 1H9v-5H7v5H3a1 1 0 01-1-1V6z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                                Home
-                            </Link>
-                            <span>›</span>
-                            <span className={styles.currentPage}>Services</span>
+                <section className={styles.hero}>
+                    <div className={styles.heroBackground}></div>
+                    <div className={styles.heroContent}>
+                        <div className={styles.container}>
+                            <div className={styles.breadcrumbs}>
+                                <Link href="/">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M2 6L8 2l6 4v7a1 1 0 01-1 1H9v-5H7v5H3a1 1 0 01-1-1V6z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                    Home
+                                </Link>
+                                <span>›</span>
+                                <span className={styles.currentPage}>Services</span>
+                            </div>
+                            <span className={styles.tagline}>WHAT WE DO BEST</span>
+                            <h1 className={styles.title}>
+                                Our Premium <span className={styles.highlight}>Services</span>
+                            </h1>
+                            <p className={styles.subtitle}>
+                                {servicesData.intro.description}
+                            </p>
                         </div>
-                        <span className={styles.tagline}>WHAT WE DO BEST</span>
-                        <h1 className={styles.title}>
-                            Our Premium <span className={styles.highlight}>Services</span>
-                        </h1>
-                        <p className={styles.subtitle}>
-                            {servicesData.intro.description}
-                        </p>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Quick Summary Grid */}
-            <section className={styles.content}>
-                <div className={styles.container}>
-                    <div className={styles.grid}>
-                        {displayServices.map((service, index) => (
-                            <div key={service.title} className={styles.card}>
-                                <div className={styles.cardImageWrapper}>
-                                    <img src={service.image} alt={service.title} className={styles.cardImage} />
-                                </div>
-                                <div className={styles.cardContent}>
-                                    <div className={styles.cardHeader}>
-                                        <div className={styles.iconWrapper}><service.icon /></div>
-                                        <h3 className={styles.cardTitle}>{service.title}</h3>
+                {/* Quick Summary Grid */}
+                <section className={styles.content}>
+                    <div className={styles.container}>
+                        <div className={styles.grid}>
+                            {displayServices.map((service, index) => (
+                                <div key={service.title} className={styles.card}>
+                                    <div className={styles.cardImageWrapper}>
+                                        <img src={service.image} alt={service.title} className={styles.cardImage} />
                                     </div>
-                                    <p className={styles.cardDesc}>{service.description}</p>
-                                    <ul className={styles.features}>
-                                        {service.features.slice(0, 3).map((feature: string) => (
-                                            <li key={feature}>
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <div className={styles.cardContent}>
+                                        <div className={styles.cardHeader}>
+                                            <div className={styles.iconWrapper}><service.icon /></div>
+                                            <h3 className={styles.cardTitle}>{service.title}</h3>
+                                        </div>
+                                        <p className={styles.cardDesc}>{service.description}</p>
+                                        <ul className={styles.features}>
+                                            {service.features.slice(0, 3).map((feature: string) => (
+                                                <li key={feature}>
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                                                    </svg>
+                                                    {feature}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <a
+                                            href={`https://wa.me/917730912913?text=Hi! I'm interested in your ${service.title} service.`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={styles.cardCta}
+                                        >
+                                            Get Quote
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Comparison Table Section */}
+                <section className={styles.detailedSection}>
+                    <div className={styles.container}>
+                        <div className={styles.sectionHeader}>
+                            <h2 className={styles.sectionTitle}>{servicesData.comparison.title}</h2>
+                        </div>
+                        <div className={styles.tableWrapper}>
+                            <table className={styles.comparisonTable}>
+                                <thead>
+                                    <tr>
+                                        {servicesData.comparison.columns.map((col, idx) => (
+                                            <th key={idx}>{col}</th>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {servicesData.comparison.rows.map((row, idx) => (
+                                        <tr key={idx}>
+                                            <td><strong>{row.aspect}</strong></td>
+                                            <td>{row.regular}</td>
+                                            <td><strong>{row.emergency}</strong></td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className={styles.sectionCtaWrapper}>
+                            <a
+                                href="https://wa.me/917730912913?text=Hi! I'm interested in getting a quote for moving services."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.sectionCta}
+                            >
+                                Get Quote
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                {/* PackersHub Services */}
+                <section className={styles.detailedSection}>
+                    <div className={styles.container}>
+                        <div className={styles.sectionHeader}>
+                            <h2 className={styles.sectionTitle}>{servicesData.packersHub.title}</h2>
+                            <p className={styles.sectionSubtitle}>{servicesData.packersHub.subtitle}</p>
+                        </div>
+
+                        <div className={styles.featureGrid}>
+                            {servicesData.packersHub.types.map((type: any, idx: number) => (
+                                <div key={idx} className={styles.featureCard}>
+                                    <h3 className={styles.featureTitle}>{type.title}</h3>
+                                    <ul className={styles.featureList}>
+                                        {(type.idealFor || type.features || []).map((item: any, i: number) => (
+                                            <li key={i}>
+                                                <svg className={styles.checkIcon} width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                                                 </svg>
-                                                {feature}
+                                                {item}
                                             </li>
                                         ))}
                                     </ul>
-                                    <a
-                                        href={`https://wa.me/917730912913?text=Hi! I'm interested in your ${service.title} service.`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={styles.cardCta}
-                                    >
-                                        Get Quote
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                                </div>
+                            ))}
+                        </div>
+                        <div className={styles.sectionCtaWrapper}>
+                            <a
+                                href="https://wa.me/917730912913?text=Hi! I am interested in PackersHub services."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.sectionCta}
+                            >
+                                Get Quote
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Home Shifting Process */}
+                <section className={styles.detailedSection}>
+                    <div className={styles.container}>
+                        <div className={styles.sectionHeader}>
+                            <h2 className={styles.sectionTitle}>{servicesData.homeShifting.title}</h2>
+                            <p className={styles.sectionSubtitle}>{servicesData.homeShifting.subtitle}</p>
+                        </div>
+                        <div className={styles.processSteps}>
+                            {servicesData.homeShifting.process.map((step, idx) => (
+                                <div key={idx} className={styles.step}>
+                                    <div className={styles.stepNumber}>{idx + 1}</div>
+                                    <h3 className={styles.stepTitle}>{step.title}</h3>
+                                    <p className={styles.stepDesc}>{step.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                        <div className={styles.sectionCtaWrapper}>
+                            <a
+                                href="https://wa.me/917730912913?text=Hi! I'm interested in Home Shifting services."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.sectionCta}
+                            >
+                                Get Quote
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Packing Techniques - 2 Col + Text */}
+                <section className={styles.detailedSection} style={{ background: '#f8fafc' }}>
+                    <div className={styles.container}>
+                        <div className={styles.sectionHeader}>
+                            <h2 className={styles.sectionTitle}>{servicesData.packing.title}</h2>
+                            <p className={styles.sectionSubtitle}>{servicesData.packing.description}</p>
+                        </div>
+                        <div className={styles.featureGrid}>
+                            {servicesData.packing.techniques.map((tech, idx) => (
+                                <div key={idx} className={styles.featureCard} style={{ background: 'white' }}>
+                                    <h3 className={styles.featureTitle}>{tech.title}</h3>
+                                    <p className={styles.sectionSubtitle}>{tech.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                        <div className={styles.sectionCtaWrapper}>
+                            <a
+                                href="https://wa.me/917730912913?text=Hi! I want to know more about your Packing services."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.sectionCta}
+                            >
+                                Get Quote
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Cities Grid */}
+                <section className={styles.detailedSection}>
+                    <div className={styles.container}>
+                        <div className={styles.sectionHeader}>
+                            <h2 className={styles.sectionTitle}>Serving South India</h2>
+                            <p className={styles.sectionSubtitle}>Expert relocation services across major cities</p>
+                        </div>
+                        <div className={styles.cityGrid}>
+                            {servicesData.cities.map((city, idx) => (
+                                <div key={idx} className={styles.cityCard}>
+                                    <div className={styles.cityName}>
+                                        {city.name}
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                                            <circle cx="12" cy="9" r="2.5" />
                                         </svg>
-                                    </a>
+                                    </div>
+                                    <p className={styles.cityDesc}>{city.description}</p>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
+                        <div className={styles.sectionCtaWrapper}>
+                            <a
+                                href="https://wa.me/917730912913?text=Hi! I'm looking for movers in my city."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.sectionCta}
+                            >
+                                Get Quote
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Comparison Table Section */}
-            <section className={styles.detailedSection}>
-                <div className={styles.container}>
-                    <div className={styles.sectionHeader}>
-                        <h2 className={styles.sectionTitle}>{servicesData.comparison.title}</h2>
-                    </div>
-                    <div className={styles.tableWrapper}>
-                        <table className={styles.comparisonTable}>
-                            <thead>
-                                <tr>
-                                    {servicesData.comparison.columns.map((col, idx) => (
-                                        <th key={idx}>{col}</th>
-                                    ))}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {servicesData.comparison.rows.map((row, idx) => (
-                                    <tr key={idx}>
-                                        <td><strong>{row.aspect}</strong></td>
-                                        <td>{row.regular}</td>
-                                        <td><strong>{row.emergency}</strong></td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                    <div className={styles.sectionCtaWrapper}>
-                        <a
-                            href="https://wa.me/917730912913?text=Hi! I'm interested in getting a quote for moving services."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.sectionCta}
-                        >
-                            Get Quote
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            {/* PackersHub Services */}
-            <section className={styles.detailedSection}>
-                <div className={styles.container}>
-                    <div className={styles.sectionHeader}>
-                        <h2 className={styles.sectionTitle}>{servicesData.packersHub.title}</h2>
-                        <p className={styles.sectionSubtitle}>{servicesData.packersHub.subtitle}</p>
-                    </div>
-
-                    <div className={styles.featureGrid}>
-                        {servicesData.packersHub.types.map((type: any, idx: number) => (
-                            <div key={idx} className={styles.featureCard}>
-                                <h3 className={styles.featureTitle}>{type.title}</h3>
-                                <ul className={styles.featureList}>
-                                    {(type.idealFor || type.features || []).map((item: any, i: number) => (
-                                        <li key={i}>
-                                            <svg className={styles.checkIcon} width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                                            </svg>
-                                            {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
-                    <div className={styles.sectionCtaWrapper}>
-                        <a
-                            href="https://wa.me/917730912913?text=Hi! I am interested in PackersHub services."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.sectionCta}
-                        >
-                            Get Quote
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            {/* Home Shifting Process */}
-            <section className={styles.detailedSection}>
-                <div className={styles.container}>
-                    <div className={styles.sectionHeader}>
-                        <h2 className={styles.sectionTitle}>{servicesData.homeShifting.title}</h2>
-                        <p className={styles.sectionSubtitle}>{servicesData.homeShifting.subtitle}</p>
-                    </div>
-                    <div className={styles.processSteps}>
-                        {servicesData.homeShifting.process.map((step, idx) => (
-                            <div key={idx} className={styles.step}>
-                                <div className={styles.stepNumber}>{idx + 1}</div>
-                                <h3 className={styles.stepTitle}>{step.title}</h3>
-                                <p className={styles.stepDesc}>{step.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                    <div className={styles.sectionCtaWrapper}>
-                        <a
-                            href="https://wa.me/917730912913?text=Hi! I'm interested in Home Shifting services."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.sectionCta}
-                        >
-                            Get Quote
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            {/* Packing Techniques - 2 Col + Text */}
-            <section className={styles.detailedSection} style={{ background: '#f8fafc' }}>
-                <div className={styles.container}>
-                    <div className={styles.sectionHeader}>
-                        <h2 className={styles.sectionTitle}>{servicesData.packing.title}</h2>
-                        <p className={styles.sectionSubtitle}>{servicesData.packing.description}</p>
-                    </div>
-                    <div className={styles.featureGrid}>
-                        {servicesData.packing.techniques.map((tech, idx) => (
-                            <div key={idx} className={styles.featureCard} style={{ background: 'white' }}>
-                                <h3 className={styles.featureTitle}>{tech.title}</h3>
-                                <p className={styles.sectionSubtitle}>{tech.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                    <div className={styles.sectionCtaWrapper}>
-                        <a
-                            href="https://wa.me/917730912913?text=Hi! I want to know more about your Packing services."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.sectionCta}
-                        >
-                            Get Quote
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            {/* Cities Grid */}
-            <section className={styles.detailedSection}>
-                <div className={styles.container}>
-                    <div className={styles.sectionHeader}>
-                        <h2 className={styles.sectionTitle}>Serving South India</h2>
-                        <p className={styles.sectionSubtitle}>Expert relocation services across major cities</p>
-                    </div>
-                    <div className={styles.cityGrid}>
-                        {servicesData.cities.map((city, idx) => (
-                            <div key={idx} className={styles.cityCard}>
-                                <div className={styles.cityName}>
-                                    {city.name}
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-                                        <circle cx="12" cy="9" r="2.5" />
-                                    </svg>
-                                </div>
-                                <p className={styles.cityDesc}>{city.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                    <div className={styles.sectionCtaWrapper}>
-                        <a
-                            href="https://wa.me/917730912913?text=Hi! I'm looking for movers in my city."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.sectionCta}
-                        >
-                            Get Quote
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <Footer
-                phone={siteSettings?.contactInfo?.phone}
-                email={siteSettings?.contactInfo?.email}
-                address={siteSettings?.contactInfo?.address}
-                services={sanityServices}
-            />
-        </main>
+                <Footer
+                    phone={siteSettings?.contactInfo?.phone}
+                    email={siteSettings?.contactInfo?.email}
+                    address={siteSettings?.contactInfo?.address}
+                    services={sanityServices}
+                />
+            </main>
+        </>
     )
 }
