@@ -27,10 +27,12 @@ import {
 export const revalidate = 60;
 
 export default async function Home() {
-  const siteSettings = await getSiteSettings();
-  const services = await getServices();
-  const blogPosts = await getBlogPosts(3);
-  const faqs = await getFAQs();
+  const [siteSettings, services, blogPosts, faqs] = await Promise.all([
+    getSiteSettings(),
+    getServices(),
+    getBlogPosts(3),
+    getFAQs()
+  ]);
 
   // ✅ JSON-LD Schema (Homepage)
   const schema = {

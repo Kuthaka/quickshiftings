@@ -39,9 +39,11 @@ export const revalidate = 60
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = await getBlogPostBySlug(slug)
-  const siteSettings = await getSiteSettings()
-  const services = await getServices()
+  const [post, siteSettings, services] = await Promise.all([
+    getBlogPostBySlug(slug),
+    getSiteSettings(),
+    getServices()
+  ]);
 
   if (!post) {
     notFound()

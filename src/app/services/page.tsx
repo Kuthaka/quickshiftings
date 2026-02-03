@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { getServices, getSiteSettings } from '@/lib/sanity-queries'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 60;
 
 export const metadata: Metadata = {
     alternates: {
@@ -58,8 +58,10 @@ const fallbackServices = [
 ];
 
 export default async function ServicesPage() {
-    const sanityServices = await getServices();
-    const siteSettings = await getSiteSettings();
+    const [sanityServices, siteSettings] = await Promise.all([
+        getServices(),
+        getSiteSettings()
+    ]);
 
     const displayServices = sanityServices && sanityServices.length > 0
         ? sanityServices.map(service => ({

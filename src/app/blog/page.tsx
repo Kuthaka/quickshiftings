@@ -8,10 +8,12 @@ import styles from './Blog.module.css'
 export const revalidate = 60
 
 export default async function BlogPage() {
-  const posts = await getBlogPosts()
-  const categories = await getCategories()
-  const siteSettings = await getSiteSettings()
-  const services = await getServices()
+  const [posts, categories, siteSettings, services] = await Promise.all([
+    getBlogPosts(),
+    getCategories(),
+    getSiteSettings(),
+    getServices()
+  ]);
 
   const schema = {
     "@context": "https://schema.org",

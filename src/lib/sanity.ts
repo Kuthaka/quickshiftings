@@ -6,7 +6,7 @@ export const client = createClient({
   projectId: '2izf66hq',
   dataset: 'production',
   apiVersion: '2024-01-01',
-  useCdn: false, // Set to false if you want to ensure fresh data
+  useCdn: true, // Set to true to use Sanity's edge network for faster data retrieval
 })
 
 // Helper function for generating image URLs
