@@ -114,12 +114,12 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 18px;
+    padding: 10px 22px;
     background: white;
     border: 2px solid rgba(79, 227, 250, 0.3);
     border-radius: 50px;
     color: #0D2B4D;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-weight: 600;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(79, 227, 250, 0.1);
