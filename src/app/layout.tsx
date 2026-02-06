@@ -47,7 +47,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
     },
     verification: {
-      google: "aSGdYPhLWHKHnxuWewIpJ7GBI9mgJWFVJxzHR8KT1po",
+      google: "3D8qFAYGruRsC1TU-5h5FqPfGaaynQSzD-ZCgC_jCkA",
     },
   };
 }
