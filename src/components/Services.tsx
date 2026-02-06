@@ -146,10 +146,10 @@ const Services = ({ services: sanityServices, locations }: ServicesProps) => {
         : services;
 
     // Locations - ensure extra cities are always included
-    const extraCities = ['Coimbatore', 'Kochi', 'Mysuru'];
+    const extraCities = ['Coimbatore', 'Kochi', 'Mysuru', 'Madurai', 'Hubballi'];
     const cityLocations = locations && locations.length > 0
         ? [...new Set([...locations, ...extraCities])]
-        : ['Nellore', 'Tirupati', 'Hyderabad', 'Chennai', 'Bangalore', 'Vijayawada', 'Visakhapatnam', 'Guntur', 'Ongole', 'Coimbatore', 'Kochi', 'Mysuru'];
+        : ['Nellore', 'Tirupati', 'Hyderabad', 'Chennai', 'Bangalore', 'Vijayawada', 'Visakhapatnam', 'Guntur', 'Ongole', 'Coimbatore', 'Kochi', 'Mysuru', 'Madurai', 'Hubballi'];
 
     return (
         <section id="services" className={styles.services}>

@@ -105,7 +105,7 @@ export default async function Home() {
         },
         "image": "https://www.packershub.in/logo.png",
         "areaServed": [
-          "Nellore", "Tirupati", "Hyderabad", "Chennai", "Bangalore", "Vijayawada", "Visakhapatnam", "Guntur", "Ongole", "Coimbatore", "Kochi", "Mysuru"
+          "Nellore", "Tirupati", "Hyderabad", "Chennai", "Bangalore", "Vijayawada", "Visakhapatnam", "Guntur", "Ongole", "Coimbatore", "Kochi", "Mysuru", "Madurai", "Hubballi"
         ],
         "knowsAbout": ["Packers and Movers", "House Shifting", "Car Transportation", "Office Relocation", "Cargo Services"]
       }

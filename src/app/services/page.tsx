@@ -185,7 +185,7 @@ export default async function ServicesPage() {
                             We Serve Across Multiple Cities
                         </h3>
                         <div className={styles.locationsList}>
-                            {['Nellore', 'Tirupati', 'Hyderabad', 'Chennai', 'Bangalore', 'Vijayawada', 'Visakhapatnam', 'Guntur', 'Ongole', 'Coimbatore', 'Kochi', 'Mysuru'].map((location, index) => (
+                            {['Nellore', 'Tirupati', 'Hyderabad', 'Chennai', 'Bangalore', 'Vijayawada', 'Visakhapatnam', 'Guntur', 'Ongole', 'Coimbatore', 'Kochi', 'Mysuru', 'Madurai', 'Hubballi'].map((location, index) => (
                                 <span key={index} className={styles.locationBadge}>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />

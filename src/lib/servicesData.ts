@@ -1,7 +1,7 @@
 export const servicesData = {
     intro: {
         title: "Comprehensive Transportation Services for Every Need",
-        description: "PackersHub offers reliable packers and movers and complete transportation services across South India. As professional packers and moving experts, we specialize in home shifting services, IT relocation services, and local packers and movers for safe and hassle-free moves. Whether you need house shifting services near me or intercity relocation across Bangalore, Chennai, Hyderabad, Vijayawada, Visakhapatnam, Tirupati, Nellore, Coimbatore, Kochi, or Mysuru, we ensure easy shifting with expert handling. Recognized as the best packers and movers, we deliver secure, timely, and affordable relocation solutions."
+        description: "PackersHub offers reliable packers and movers and complete transportation services across South India. As professional packers and moving experts, we specialize in home shifting services, IT relocation services, and local packers and movers for safe and hassle-free moves. Whether you need house shifting services near me or intercity relocation across Bangalore, Chennai, Hyderabad, Vijayawada, Visakhapatnam, Tirupati, Nellore, Coimbatore, Kochi, Mysuru, Madurai, or Hubballi, we ensure easy shifting with expert handling. Recognized as the best packers and movers, we deliver secure, timely, and affordable relocation solutions."
     },
     comparison: {
         title: "How It Differs from Normal Moving Services",
@@ -97,7 +97,7 @@ export const servicesData = {
     localMovers: {
         title: "Local Packers and Movers",
         subtitle: "Your Neighborhood Experts",
-        description: "Specializing in efficient intra-city moves across major South Indian cities including Bangalore, Chennai, Hyderabad, Vijayawada, Visakhapatnam, Tirupati, Nellore, Coimbatore, Kochi, and Mysuru.",
+        description: "Specializing in efficient intra-city moves across major South Indian cities including Bangalore, Chennai, Hyderabad, Vijayawada, Visakhapatnam, Tirupati, Nellore, Coimbatore, Kochi, Mysuru, Madurai, and Hubballi.",
         benefits: [
             "Reduced transit times & same-day completion",
             "Route optimization based on real-time traffic",
@@ -166,6 +166,14 @@ export const servicesData = {
         {
             name: "Mysuru",
             description: "Reliable and careful packing and moving services in the Heritage City."
+        },
+        {
+            name: "Madurai",
+            description: "Expert relocation services in the Temple City, ensuring safe and timely deliveries."
+        },
+        {
+            name: "Hubballi",
+            description: "Professional packing and moving solutions in the commercial hub of North Karnataka."
         }
     ],
     whyUs: {
