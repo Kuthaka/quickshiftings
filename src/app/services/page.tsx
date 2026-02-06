@@ -175,6 +175,28 @@ export default async function ServicesPage() {
                     </div>
                 </section>
 
+                {/* City Locations Section */}
+                <section className={styles.container}>
+                    <div className={styles.locationsSection}>
+                        <h3 className={styles.locationsTitle}>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            We Serve Across Multiple Cities
+                        </h3>
+                        <div className={styles.locationsList}>
+                            {['Nellore', 'Tirupati', 'Hyderabad', 'Chennai', 'Bangalore', 'Vijayawada', 'Visakhapatnam', 'Guntur', 'Ongole', 'Coimbatore', 'Kochi', 'Mysuru'].map((location, index) => (
+                                <span key={index} className={styles.locationBadge}>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                                    </svg>
+                                    {location}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
                 {/* Comparison Table Section */}
                 <section className={styles.detailedSection}>
                     <div className={styles.container}>

@@ -145,6 +145,12 @@ const Services = ({ services: sanityServices, locations }: ServicesProps) => {
         }))
         : services;
 
+    // Locations - ensure extra cities are always included
+    const extraCities = ['Coimbatore', 'Kochi', 'Mysuru'];
+    const cityLocations = locations && locations.length > 0
+        ? [...new Set([...locations, ...extraCities])]
+        : ['Nellore', 'Tirupati', 'Hyderabad', 'Chennai', 'Bangalore', 'Vijayawada', 'Visakhapatnam', 'Guntur', 'Ongole', 'Coimbatore', 'Kochi', 'Mysuru'];
+
     return (
         <section id="services" className={styles.services}>
             <div className={styles.container}>
@@ -218,7 +224,7 @@ const Services = ({ services: sanityServices, locations }: ServicesProps) => {
                 </div>
 
                 {/* Service Locations - After Cards */}
-                {locations && locations.length > 0 && (
+                {cityLocations.length > 0 && (
                     <div className={styles.locationsSection}>
                         <div className={styles.locationsContent}>
                             <h3 className={styles.locationsTitle}>
@@ -228,7 +234,7 @@ const Services = ({ services: sanityServices, locations }: ServicesProps) => {
                                 We Serve Across Multiple Cities
                             </h3>
                             <div className={styles.locationsList}>
-                                {locations.map((location, index) => (
+                                {cityLocations.map((location, index) => (
                                     <span key={index} className={styles.locationBadge}>
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                             <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />

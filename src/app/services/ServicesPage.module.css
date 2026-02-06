@@ -313,12 +313,12 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 10px 20px;
+    padding: 8px 16px;
     background: #f0f7ff;
     color: #0066cc;
     border-radius: 50px;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     transition: all 0.3s ease;
 }
 
@@ -523,9 +523,9 @@
 }
 
 .cityName {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #0D2B4D;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -533,9 +533,9 @@
 }
 
 .cityDesc {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #5a6c7d;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 @media (max-width: 768px) {
