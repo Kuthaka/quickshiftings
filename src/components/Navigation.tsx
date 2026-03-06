@@ -40,6 +40,14 @@ const Navigation = () => {
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About' },
         { href: '/services', label: 'Services' },
+        {
+            href: '#',
+            label: 'Locations',
+            subItems: [
+                { href: '/nellore', label: 'Nellore' },
+                { href: '/tirupati', label: 'Tirupati' },
+            ]
+        },
         { href: '#process', label: 'How We Work' },
         { href: '/blog', label: 'Blog' },
         { href: '#contact', label: 'Contact' },
@@ -51,6 +59,11 @@ const Navigation = () => {
         if (href === '#contact') {
             e.preventDefault();
             setIsContactModalOpen(true);
+            return;
+        }
+
+        if (href === '#' || !href) {
+            e.preventDefault();
             return;
         }
 
