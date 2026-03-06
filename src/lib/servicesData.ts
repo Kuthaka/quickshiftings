@@ -178,6 +178,38 @@ export const servicesData = {
         {
             name: "Warangal",
             description: "Reliable and expert relocation services in the historic city of Telangana."
+        },
+        {
+            name: "Salem",
+            description: "Professional packing and moving services in the Steel City of Tamil Nadu."
+        },
+        {
+            name: "Thiruvananthapuram",
+            description: "Expert relocation solutions in the capital city of Kerala, ensuring safe transit."
+        },
+        {
+            name: "Thrissur",
+            description: "Careful and efficient moving services in the Cultural Capital of Kerala."
+        },
+        {
+            name: "Karimnagar",
+            description: "Reliable relocation services for residential and commercial needs in Karimnagar."
+        },
+        {
+            name: "Mangalore",
+            description: "Safe and timely packing and moving solutions in the port city of Karnataka."
+        },
+        {
+            name: "Guntur",
+            description: "Professional residential and office shifting services throughout Guntur."
+        },
+        {
+            name: "Kakinada",
+            description: "Expert packing and moving services in the Fertilizer City, covering all areas."
+        },
+        {
+            name: "Ongole",
+            description: "Reliable and affordable relocation solutions in the headquarters of Prakasam district."
         }
     ],
     whyUs: {
