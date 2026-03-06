@@ -63,8 +63,8 @@
 
 /* Service Locations Section - After Cards */
 .locationsSection {
-    margin-top: 60px;
-    padding: 40px;
+    margin-top: 40px;
+    padding: 30px;
     background: linear-gradient(135deg, rgba(79, 227, 250, 0.08) 0%, rgba(21, 170, 213, 0.08) 100%);
     border-radius: 20px;
     border: 2px solid rgba(79, 227, 250, 0.2);
@@ -105,24 +105,31 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
-    max-width: 800px;
+    gap: 12px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
 .locationBadge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 22px;
+    gap: 6px;
+    padding: 8px 18px;
     background: white;
     border: 2px solid rgba(79, 227, 250, 0.3);
     border-radius: 50px;
     color: #0D2B4D;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(79, 227, 250, 0.1);
+}
+
+.locationBadge svg {
+    color: #15AAD5;
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
 }
 
 .locationBadge:hover {
@@ -131,11 +138,6 @@
     border-color: #15AAD5;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(79, 227, 250, 0.3);
-}
-
-.locationBadge svg {
-    color: #15AAD5;
-    flex-shrink: 0;
 }
 
 .locationBadge:hover svg {
@@ -344,12 +346,43 @@
 
 @media (max-width: 650px) {
     .services {
-        padding: 80px 0;
+        padding: 60px 0;
+    }
+
+    .header {
+        margin-bottom: 2.5rem;
+    }
+
+    .locationsSection {
+        padding: 20px 15px;
+        margin-top: 30px;
+        border-radius: 12px;
+    }
+
+    .locationsTitle {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        gap: 8px;
+    }
+
+    .locationsList {
+        gap: 8px;
+    }
+
+    .locationBadge {
+        padding: 5px 12px;
+        font-size: 0.75rem;
+        border-width: 1px;
+    }
+
+    .locationBadge svg {
+        width: 12px;
+        height: 12px;
     }
 
     .grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
     }
 
     .cardImageWrapper {
@@ -357,16 +390,16 @@
     }
 
     .cardContent {
-        padding: 24px;
+        padding: 20px;
     }
 
     .cardHeader {
-        margin-top: -45px;
+        margin-top: -40px;
     }
 
     .iconWrapper {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
     }
 }
 
