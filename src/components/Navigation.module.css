@@ -307,14 +307,17 @@
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     background: white;
-    min-width: 260px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    border-radius: 12px;
-    padding: 0.5rem;
+    min-width: 600px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    padding: 1.5rem;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
 }
 
 .dropdownContainer:hover .dropdownMenu,
@@ -369,7 +372,8 @@
     width: 100%;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    overflow: hidden;
+    overflow-y: auto;
+    max-height: 350px;
     margin-top: 0.5rem;
 }
 

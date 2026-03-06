@@ -12,7 +12,7 @@ import styles from './LocationPage.module.css';
 import Link from 'next/link';
 
 interface Props {
-    params: { city: string };
+    params: Promise<{ city: string }>;
 }
 
 // Function to format city name (e.g., nellore -> Nellore)
@@ -34,7 +34,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export async function generateStaticParams() {
     return [
         { city: 'nellore' },
-        { city: 'tirupati' }
+        { city: 'tirupati' },
+        { city: 'bangalore' },
+        { city: 'chennai' },
+        { city: 'hyderabad' },
+        { city: 'vijayawada' },
+        { city: 'visakhapatnam' },
+        { city: 'coimbatore' },
+        { city: 'kochi' },
+        { city: 'mysuru' },
+        { city: 'madurai' },
+        { city: 'hubballi' },
+        { city: 'warangal' },
+        { city: 'salem' },
+        { city: 'thiruvananthapuram' },
+        { city: 'thrissur' },
+        { city: 'karimnagar' },
+        { city: 'mangalore' },
+        { city: 'guntur' },
+        { city: 'kakinada' },
+        { city: 'ongole' },
     ];
 }
 

@@ -1,8 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Explicitly enable SWC minification (default in Next.js 13+)
-  swcMinify: true,
 
   images: {
     remotePatterns: [
