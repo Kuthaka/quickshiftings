@@ -8,6 +8,7 @@ import FAQ from '@/components/FAQ';
 import Services from '@/components/Services';
 import BlogPosts from '@/components/BlogPosts';
 import { getSiteSettings, getServices, getBlogPosts, getFAQs } from '@/lib/sanity-queries';
+import { getCityContent } from '@/lib/cityData';
 import styles from './LocationPage.module.css';
 import Link from 'next/link';
 
@@ -23,19 +24,19 @@ const formatCity = (slug: string) => {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { city: cityParam } = await params;
-    const city = formatCity(cityParam);
+    const content = getCityContent(cityParam);
     const fullUrl = `https://www.packershub.in/${cityParam.toLowerCase()}`;
 
     return {
-        title: `Best Packers and Movers in ${city} | #1 Shifting Services in ${city}`,
-        description: `Looking for safe and reliable ${city} packers and movers? Get the best house shifting, office relocation, and car transport services in ${city} at affordable rates. Verified team & safe packing.`,
-        keywords: [`packers and movers in ${city}`, `house shifting in ${city}`, `office relocation ${city}`, `local movers ${city}`, `cheap packers and movers ${city}`],
+        title: content.metaTitle,
+        description: content.metaDescription,
+        keywords: content.focusKeywords,
         alternates: {
             canonical: fullUrl,
         },
         openGraph: {
-            title: `Best Packers and Movers in ${city} | PackersHub`,
-            description: `Trusted and professional packers and movers in ${city}. Home and office shifting made easy.`,
+            title: content.metaTitle,
+            description: content.metaDescription,
             url: fullUrl,
             siteName: 'PackersHub',
             locale: 'en_IN',
@@ -60,12 +61,19 @@ export async function generateStaticParams() {
 export default async function LocationPage({ params }: Props) {
     const { city: cityParam } = await params;
     const city = formatCity(cityParam);
-    const [siteSettings, services, blogPosts, faqs] = await Promise.all([
+    const content = getCityContent(cityParam);
+    const [siteSettings, services, blogPosts, sanityFaqs] = await Promise.all([
         getSiteSettings(),
         getServices(),
         getBlogPosts(3),
         getFAQs()
     ]);
+
+    // Merge FAQs
+    const combinedFaqs = [
+        ...content.faqs.map((f, i) => ({ ...f, _id: `local-${i}`, _type: 'faq' as const, isActive: true })),
+        ...(sanityFaqs || []).slice(0, 3)
+    ];
 
     const pageUrl = `https://www.packershub.in/${cityParam}`;
 
@@ -109,12 +117,12 @@ export default async function LocationPage({ params }: Props) {
                     "@type": "City",
                     "name": city
                 },
-                "description": `Professional Packers and Movers in ${city}. We provide safe and reliable home shifting, office relocation, and car transport services.`
+                "description": content.metaDescription
             },
             {
                 "@type": "ProfessionalService",
                 "name": `Packers and Movers in ${city}`,
-                "description": `Looking for the best packers and movers in ${city}? PackersHub offers top-rated relocation services, household shifting, and office moving in ${city}.`,
+                "description": content.metaDescription,
                 "url": pageUrl,
                 "address": {
                     "@type": "PostalAddress",
@@ -167,27 +175,34 @@ export default async function LocationPage({ params }: Props) {
                 <div className={styles.container}>
                     <div className={styles.contentGrid}>
                         <div className={styles.textContent}>
-                            <h2>Looking for safe and reliable {city} packers and movers?</h2>
-                            <p>
-                                We provide trusted packers and movers in {city} for home and office relocations. Our team understands how important your belongings are, and we handle every item with care. If you are searching for packers and movers near me, we are here to give you quick and professional service at affordable prices.
-                            </p>
-                            <p>
-                                We are known as the Best packers and movers in {city} because of our safe packing, timely delivery, and friendly support. Our Household shifting services {city} are designed to make your move simple and stress-free. We also handle Office Shiftings {city} with proper planning to avoid business interruption. When you choose packers and movers {city}, you choose safety and peace of mind.
-                            </p>
+                            <h2>{content.aboutTitle}</h2>
+                            {content.aboutText.map((paragraph, idx) => (
+                                <p key={idx}>{paragraph}</p>
+                            ))}
 
-                            <h3>Our Services</h3>
+                            <h3>{content.uniqueTitle}</h3>
                             <ul className={styles.serviceList}>
-                                <li><strong>House Shifting</strong> – Safe packing and careful transport of household items.</li>
-                                <li><strong>Car Shifting</strong> – Secure vehicle transport with proper protection.</li>
-                                <li><strong>Bike Shifting</strong> – Safe two-wheeler moving without damage.</li>
-                                <li><strong>Commercial Goods</strong> – Office items, machinery, and business materials shifting.</li>
-                                <li><strong>Packing and Unpacking</strong> – Quality materials used for safe packing.</li>
-                                <li><strong>Loading and Unloading</strong> – Skilled staff for damage-free handling.</li>
+                                {content.uniquePoints.map((point, idx) => (
+                                    <li key={idx}><strong>•</strong> {point}</li>
+                                ))}
                             </ul>
 
-                            <p className={styles.ctaText}>
-                                Get your personalized quote today! Contact us or fill out the form for a fast, free estimate tailored to your moving needs.
-                            </p>
+                            <h3>{content.servicesTitle}</h3>
+                            <ul className={styles.serviceList}>
+                                {content.services.map((service, idx) => (
+                                    <li key={idx}><strong>{service.title}</strong> – {service.description}</li>
+                                ))}
+                            </ul>
+
+                            <h3>{content.trustTitle}</h3>
+                            <p>{content.trustText}</p>
+
+                            <h3>{content.promiseTitle}</h3>
+                            <ul className={styles.serviceList}>
+                                {content.promisePoints.map((point, idx) => (
+                                    <li key={idx}><strong>•</strong> {point}</li>
+                                ))}
+                            </ul>
 
                             <div className={styles.chargesCard}>
                                 <h3>Packers and Movers Charges in {city}</h3>
@@ -196,6 +211,12 @@ export default async function LocationPage({ params }: Props) {
                                     <a href="tel:+917730912913" className={styles.quoteBtn}>Get a Free Quote</a>
                                 </div>
                             </div>
+
+                            <p className={styles.ctaText} style={{ marginTop: '2rem' }}>
+                                Ready to Move in {city}? Let&apos;s Make It Simple.
+                                <br />
+                                Call or WhatsApp us to get started with a clear and honest estimate.
+                            </p>
                         </div>
 
                         <aside className={styles.sidebar}>
@@ -247,7 +268,7 @@ export default async function LocationPage({ params }: Props) {
 
             <Testimonials />
 
-            <FAQ faqs={faqs} />
+            <FAQ faqs={combinedFaqs} />
 
             <Services services={services} locations={siteSettings?.serviceLocations} />
 
