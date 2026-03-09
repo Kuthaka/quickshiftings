@@ -159,41 +159,77 @@
     width: 100%;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
+    .flowSection {
+        padding: 60px 0;
+    }
+
+    .mainTitle {
+        margin-bottom: 2.5rem;
+        font-size: 1.8rem;
+    }
+
+    .timelineContainer {
+        overflow-x: auto;
+        padding-bottom: 20px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .timelineContainer::-webkit-scrollbar {
+        display: none;
+    }
+
     .centralLine {
-        left: 30px;
+        display: none;
+    }
+
+    .flowList {
+        flex-direction: row;
+        gap: 10px;
+        padding: 5px 0;
+        width: max-content;
     }
 
     .stepRow {
-        grid-template-columns: 1fr;
-        gap: 0;
-        padding-left: 60px;
-    }
-
-    .stepRow.left,
-    .stepRow.right {
-        transform: translateY(30px);
-    }
-
-    .stepRow.left.visible,
-    .stepRow.right.visible {
-        transform: translateY(0);
-    }
-
-    .left .cardWrapper,
-    .right .cardWrapper {
-        justify-content: flex-start;
+        display: block;
+        width: 210px;
+        padding: 0;
+        opacity: 1;
+        filter: none;
+        transform: none !important;
     }
 
     .card {
-        max-width: 100%;
+        padding: 12px;
+        min-height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
-    .left .marker,
-    .right .marker {
-        left: -36px;
-        right: auto;
-        background: #15AAD5;
+    .cardNumber {
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+    }
+
+    .stepTitle {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+    }
+
+    .description {
+        font-size: 0.8rem;
+        line-height: 1.35;
+        padding-left: 10px;
+    }
+
+    .cardWrapper {
+        justify-content: center !important;
+    }
+
+    .marker {
+        display: none;
     }
 
     .empty {
