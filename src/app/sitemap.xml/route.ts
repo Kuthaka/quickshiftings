@@ -38,7 +38,21 @@ export async function GET() {
         priority: '0.64',
     }))
 
-    const allRoutes = [...staticRoutes, ...blogRoutes]
+    const cities = [
+        'nellore', 'tirupati', 'bangalore', 'chennai', 'hyderabad', 'vijayawada',
+        'visakhapatnam', 'coimbatore', 'kochi', 'mysuru', 'madurai', 'hubballi',
+        'warangal', 'salem', 'thiruvananthapuram', 'thrissur', 'karimnagar',
+        'mangalore', 'guntur', 'kakinada', 'ongole'
+    ];
+
+    const cityRoutes = cities.map((city) => ({
+        url: `${baseUrl}/${city}-packers-and-movers`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: '0.7',
+    }));
+
+    const allRoutes = [...staticRoutes, ...cityRoutes, ...blogRoutes]
 
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">

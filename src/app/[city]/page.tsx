@@ -15,8 +15,11 @@ interface Props {
     params: Promise<{ city: string }>;
 }
 
-// Function to format city name (e.g., nellore -> Nellore)
-const formatCity = (city: string) => city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
+// Function to format city name (e.g., nellore-packers-and-movers -> Nellore)
+const formatCity = (slug: string) => {
+    const cityName = slug.replace('-packers-and-movers', '');
+    return cityName.charAt(0).toUpperCase() + cityName.slice(1).toLowerCase();
+};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { city: cityParam } = await params;
@@ -32,29 +35,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // Pre-generate paths for common cities (optional but good for performance)
 export async function generateStaticParams() {
-    return [
-        { city: 'nellore' },
-        { city: 'tirupati' },
-        { city: 'bangalore' },
-        { city: 'chennai' },
-        { city: 'hyderabad' },
-        { city: 'vijayawada' },
-        { city: 'visakhapatnam' },
-        { city: 'coimbatore' },
-        { city: 'kochi' },
-        { city: 'mysuru' },
-        { city: 'madurai' },
-        { city: 'hubballi' },
-        { city: 'warangal' },
-        { city: 'salem' },
-        { city: 'thiruvananthapuram' },
-        { city: 'thrissur' },
-        { city: 'karimnagar' },
-        { city: 'mangalore' },
-        { city: 'guntur' },
-        { city: 'kakinada' },
-        { city: 'ongole' },
+    const cities = [
+        'nellore', 'tirupati', 'bangalore', 'chennai', 'hyderabad', 'vijayawada',
+        'visakhapatnam', 'coimbatore', 'kochi', 'mysuru', 'madurai', 'hubballi',
+        'warangal', 'salem', 'thiruvananthapuram', 'thrissur', 'karimnagar',
+        'mangalore', 'guntur', 'kakinada', 'ongole'
     ];
+    return cities.map(city => ({
+        city: `${city}-packers-and-movers`
+    }));
 }
 
 export default async function LocationPage({ params }: Props) {
