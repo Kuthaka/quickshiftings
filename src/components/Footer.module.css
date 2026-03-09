@@ -137,12 +137,42 @@
 }
 
 .bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 24px 0;
     color: rgba(255, 255, 255, 0.5);
     font-size: 0.85rem;
+}
+
+.footerBottomContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.areasWeServe {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.8rem;
+}
+
+.areasWeServe span {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    margin-right: 4px;
+}
+
+.areasWeServe a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.areasWeServe a:hover {
+    color: var(--secondary-blue);
 }
 
 @media (max-width: 1024px) {
@@ -172,9 +202,17 @@
     }
 
     .bottom {
-        flex-direction: column;
-        gap: 8px;
         text-align: center;
+    }
+
+    .footerBottomContent {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .areasWeServe {
+        justify-content: center;
+        line-height: 1.6;
     }
 
     .ctaButtons {

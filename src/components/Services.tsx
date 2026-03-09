@@ -235,12 +235,16 @@ const Services = ({ services: sanityServices, locations }: ServicesProps) => {
                             </h3>
                             <div className={styles.locationsList}>
                                 {cityLocations.map((location, index) => (
-                                    <span key={index} className={styles.locationBadge}>
+                                    <Link
+                                        key={index}
+                                        href={`/${location.toLowerCase().replace(/\s+/g, '-')}-packers-and-movers`}
+                                        className={styles.locationBadge}
+                                    >
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                             <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                                         </svg>
                                         {location}
-                                    </span>
+                                    </Link>
                                 ))}
                             </div>
                         </div>

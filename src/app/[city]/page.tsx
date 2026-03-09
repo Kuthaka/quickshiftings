@@ -24,12 +24,23 @@ const formatCity = (slug: string) => {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { city: cityParam } = await params;
     const city = formatCity(cityParam);
+    const fullUrl = `https://www.packershub.in/${cityParam.toLowerCase()}`;
+
     return {
-        title: `Best Packers and Movers in ${city} | PackersHub`,
-        description: `Looking for safe and reliable ${city} packers and movers? We provide trusted packers and movers in ${city} for home and office relocations at affordable prices.`,
+        title: `Best Packers and Movers in ${city} | #1 Shifting Services in ${city}`,
+        description: `Looking for safe and reliable ${city} packers and movers? Get the best house shifting, office relocation, and car transport services in ${city} at affordable rates. Verified team & safe packing.`,
+        keywords: [`packers and movers in ${city}`, `house shifting in ${city}`, `office relocation ${city}`, `local movers ${city}`, `cheap packers and movers ${city}`],
         alternates: {
-            canonical: `https://www.packershub.in/${cityParam.toLowerCase()}`,
+            canonical: fullUrl,
         },
+        openGraph: {
+            title: `Best Packers and Movers in ${city} | PackersHub`,
+            description: `Trusted and professional packers and movers in ${city}. Home and office shifting made easy.`,
+            url: fullUrl,
+            siteName: 'PackersHub',
+            locale: 'en_IN',
+            type: 'website',
+        }
     };
 }
 
@@ -56,8 +67,71 @@ export default async function LocationPage({ params }: Props) {
         getFAQs()
     ]);
 
+    const pageUrl = `https://www.packershub.in/${cityParam}`;
+
+    // JSON-LD Schema for Location Page
+    const schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BreadcrumbList",
+                "@id": `${pageUrl}/#breadcrumb`,
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://www.packershub.in/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": `Packers and Movers in ${city}`,
+                        "item": pageUrl
+                    }
+                ]
+            },
+            {
+                "@type": "LocalBusiness",
+                "@id": `${pageUrl}/#localbusiness`,
+                "name": `PackersHub - Packers and Movers in ${city}`,
+                "image": "https://www.packershub.in/logo.png",
+                "url": pageUrl,
+                "telephone": siteSettings?.contactInfo?.phone || "+917730912913",
+                "priceRange": "₹₹",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": city,
+                    "addressRegion": "Andhra Pradesh", // Can be dynamic if you have state data
+                    "addressCountry": "IN"
+                },
+                "areaServed": {
+                    "@type": "City",
+                    "name": city
+                },
+                "description": `Professional Packers and Movers in ${city}. We provide safe and reliable home shifting, office relocation, and car transport services.`
+            },
+            {
+                "@type": "ProfessionalService",
+                "name": `Packers and Movers in ${city}`,
+                "description": `Looking for the best packers and movers in ${city}? PackersHub offers top-rated relocation services, household shifting, and office moving in ${city}.`,
+                "url": pageUrl,
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": city,
+                    "addressRegion": "Andhra Pradesh",
+                    "addressCountry": "IN"
+                }
+            }
+        ]
+    };
+
     return (
         <main className={styles.page}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            />
             <Navigation />
 
             <section className={styles.hero}>

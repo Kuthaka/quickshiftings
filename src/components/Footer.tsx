@@ -144,8 +144,19 @@ const Footer = ({ phone, email, address, services }: FooterProps) => {
                 </div>
 
                 <div className={styles.bottom}>
-                    <p>© 2024 PackersHub. All rights reserved.</p>
-                    <p>Professional Packers & Movers in Nellore</p>
+                    <div className={styles.footerBottomContent}>
+                        <p>© 2024 PackersHub. All rights reserved.</p>
+                        <div className={styles.areasWeServe}>
+                            <span>Areas we serve:</span>
+                            <Link href="/nellore-packers-and-movers">Nellore</Link> |
+                            <Link href="/tirupati-packers-and-movers">Tirupati</Link> |
+                            <Link href="/hyderabad-packers-and-movers">Hyderabad</Link> |
+                            <Link href="/bangalore-packers-and-movers">Bangalore</Link> |
+                            <Link href="/chennai-packers-and-movers">Chennai</Link> |
+                            <Link href="/vijayawada-packers-and-movers">Vijayawada</Link> |
+                            <Link href="/visakhapatnam-packers-and-movers">Visakhapatnam</Link>
+                        </div>
+                    </div>
                 </div>
             </div>
 
