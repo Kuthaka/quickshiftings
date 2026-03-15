@@ -50,7 +50,7 @@ export async function generateStaticParams() {
         'nellore', 'tirupati', 'bangalore', 'chennai', 'hyderabad', 'vijayawada',
         'visakhapatnam', 'coimbatore', 'kochi', 'mysuru', 'madurai', 'hubballi',
         'warangal', 'salem', 'thiruvananthapuram', 'thrissur', 'karimnagar',
-        'mangalore', 'guntur', 'kakinada', 'ongole'
+        'mangalore', 'guntur', 'kakinada', 'ongole', 'rajahmundry', 'kozhikode'
     ];
     return cities.map(city => ({
         city: `${city}-packers-and-movers`

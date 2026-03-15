@@ -2581,28 +2581,20 @@ const cityData: Record<string, CityContent> = {
             },
             {
                 title: "Intercity and Interstate Moves",
-                description: "Regular GPS-tracked routes from Chennai to Bangalore, Hyderabad, Mumbai, Coimbatore, and Tirupati with full transit insurance coverage."
+                description: "Chennai to Bangalore, Hyderabad, Mumbai, Delhi, and Coimbatore — we run regular routes on all major corridors."
             }
         ],
         trustTitle: "PackersHub's Promise to Chennai Customers",
         trustText: "We understand that relocation is not just about moving objects — it is about moving your life. Every item in your home carries a memory, a value, and a purpose. PackersHub's team approaches every move in Chennai with this understanding. Our packers work with care, not speed alone. Our drivers are trained to treat their load as if it were their own belongings. And our customer service team stays available throughout the process — before the move, during it, and after delivery.",
         promiseTitle: "Areas Served in Chennai",
         promisePoints: [
-            "T. Nagar | Anna Nagar | Velachery | OMR | Adyar",
-            "Tambaram | Porur | Perambur | Chromepet | Sholinganallur",
-            "Guduvanchery | Avadi | Sriperumbudur | Nungambakkam | Mylapore",
-            "Comprehensive coverage across Chennai Metropolitan Area and Tamil Nadu"
+            "T. Nagar | Anna Nagar | Velachery | Adyar | OMR",
+            "Porur | Tambaram | Guindy | Thiruvanmiyur | Besant Nagar",
+            "Mylapore | Nungambakkam | Alwarpet | Kilpauk | Chromepet",
+            "Covering all major tech parks and residential zones across Chennai"
         ],
         faqTitle: "Frequently Asked Questions – Packers and Movers in Chennai",
         faqs: [
-            {
-                question: "Do you move during the Chennai monsoon season?",
-                answer: "Yes, we operate year-round. During monsoon, we take extra precautions with waterproof packing and route planning to avoid flood-prone areas."
-            },
-            {
-                question: "Can you handle moves from multi-storey apartments in OMR and Velachery?",
-                answer: "Yes, our team is equipped for high-rise moves with proper tools, trolleys, and safety gear."
-            },
             {
                 question: "Do you provide vehicle transport from Chennai to other states?",
                 answer: "Yes, we offer door-to-door car and bike transport from Chennai to Bangalore, Hyderabad, Mumbai, and all major Indian cities."

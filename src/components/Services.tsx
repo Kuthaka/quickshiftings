@@ -146,10 +146,10 @@ const Services = ({ services: sanityServices, locations }: ServicesProps) => {
         : services;
 
     // Locations - ensure extra cities are always included
-    const extraCities = ['Coimbatore', 'Kochi', 'Mysuru', 'Madurai', 'Hubballi', 'Warangal', 'Salem', 'Thiruvananthapuram', 'Thrissur', 'Karimnagar', 'Mangalore', 'Guntur', 'Kakinada', 'Ongole'];
+    const extraCities = ['Coimbatore', 'Kochi', 'Mysuru', 'Madurai', 'Hubballi', 'Warangal', 'Salem', 'Thiruvananthapuram', 'Thrissur', 'Karimnagar', 'Mangalore', 'Guntur', 'Kakinada', 'Ongole', 'Rajahmundry', 'Kozhikode'];
     const cityLocations = locations && locations.length > 0
         ? [...new Set([...locations, ...extraCities])]
-        : ['Nellore', 'Tirupati', 'Hyderabad', 'Chennai', 'Bangalore', 'Vijayawada', 'Visakhapatnam', 'Guntur', 'Ongole', 'Coimbatore', 'Kochi', 'Mysuru', 'Madurai', 'Hubballi', 'Warangal', 'Salem', 'Thiruvananthapuram', 'Thrissur', 'Karimnagar', 'Mangalore', 'Kakinada'];
+        : ['Nellore', 'Tirupati', 'Hyderabad', 'Chennai', 'Bangalore', 'Vijayawada', 'Visakhapatnam', 'Guntur', 'Ongole', 'Coimbatore', 'Kochi', 'Mysuru', 'Madurai', 'Hubballi', 'Warangal', 'Salem', 'Thiruvananthapuram', 'Thrissur', 'Karimnagar', 'Mangalore', 'Kakinada', 'Rajahmundry', 'Kozhikode'];
 
     return (
         <section id="services" className={styles.services}>

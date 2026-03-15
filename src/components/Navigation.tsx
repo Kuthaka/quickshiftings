@@ -65,6 +65,8 @@ const Navigation = () => {
                 { href: '/guntur-packers-and-movers', label: 'Guntur' },
                 { href: '/kakinada-packers-and-movers', label: 'Kakinada' },
                 { href: '/ongole-packers-and-movers', label: 'Ongole' },
+                { href: '/rajahmundry-packers-and-movers', label: 'Rajahmundry' },
+                { href: '/kozhikode-packers-and-movers', label: 'Kozhikode' },
             ]
         },
         { href: '#process', label: 'How We Work' },

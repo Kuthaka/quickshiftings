@@ -208,10 +208,21 @@ export const servicesData = {
             description: "Expert packing and moving services in the Fertilizer City, covering all areas."
         },
         {
-            name: "Ongole",
-            description: "Reliable and affordable relocation solutions in the headquarters of Prakasam district."
+            name: 'Ongole',
+            description: 'Top-tier movers in Ongole for residential relocation.'
+        },
+        {
+            name: 'Rajahmundry',
+            description: 'Dependable moving solutions in Rajahmundry for all needs.'
+        },
+        {
+            name: 'Kozhikode',
+            description: 'Trusted relocation services across Kozhikode.'
         }
     ],
+    locations: {
+        telangana: ['Hyderabad', 'Warangal', 'Karimnagar'],
+    },
     whyUs: {
         title: "The Moving Experts",
         subtitle: "Why Professional Service Matters",
