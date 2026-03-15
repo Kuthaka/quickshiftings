@@ -2604,6 +2604,170 @@ const cityData: Record<string, CityContent> = {
                 answer: "No. PackersHub follows transparent pricing — the quote we give is the price you pay. No surprises."
             }
         ]
+    },
+    rajahmundry: {
+        metaTitle: "Packers and Movers in Rajahmundry – Trusted, Safe & On-Time Relocation",
+        metaDescription: "Looking for reliable packers and movers in Rajahmundry? PackersHub offers professional house shifting, office relocation, car transport, and more across Rajahmundry and Andhra Pradesh. 10+ years of trusted service. Get a free quote today.",
+        focusKeywords: ["packers and movers in Rajahmundry", "movers and packers Rajahmundry", "house shifting Rajahmundry", "home relocation Rajahmundry", "office shifting Rajahmundry", "car transport Rajahmundry", "bike shifting Rajahmundry", "furniture shifting Rajahmundry", "household shifting Rajahmundry", "local packers Rajahmundry", "best packers movers Rajahmundry", "trusted movers Rajahmundry", "residential shifting Rajahmundry", "commercial relocation Rajahmundry", "packing unpacking services Rajahmundry"],
+        aboutTitle: "Professional Packers and Movers in Rajahmundry – PackersHub",
+        aboutText: [
+            "Rajahmundry, fondly known as the Cultural Capital of Andhra Pradesh, sits majestically on the banks of the mighty Godavari River. Home to the historic Godavari Pushkaram, the iconic Dowleswaram Barrage, and revered as the birthplace of Telugu literature, Rajahmundry is a city where tradition runs as deep as the Godavari itself. In recent years, the city has also grown as a commercial and educational hub — with ONGC operations nearby, Rajiv Gandhi University of Knowledge Technologies, and expanding real estate in areas like Danavaipeta and Bhudevi Nagar. As families upgrade their homes and professionals transfer between cities, the demand for reliable packers and movers in Rajahmundry has grown steadily. PackersHub fills that need with professional, city-savvy relocation services that the people of Rajahmundry can count on.",
+            "Anyone who has tried to move in Rajahmundry knows the ground realities — the busy streets around Godavari Bridge, the narrow lanes near Innespeta and Morampudi, and the seasonal flooding risks close to the riverbanks. Add to that the city's characteristic summer heat and the unique logistics of moving goods across the Godavari — and you understand why local expertise matters. PackersHub's Rajahmundry team has worked through all these conditions, building a reputation for careful, on-time service that East Godavari families trust."
+        ],
+        uniqueTitle: "Why Choose PackersHub for Your Rajahmundry Relocation?",
+        uniquePoints: [
+            "10+ Years of Moving Expertise: Our teams have been helping families and businesses relocate safely for over a decade. We have completed hundreds of moves in and around Rajahmundry alone.",
+            "Trained and Background-Verified Crew: Every PackersHub team member undergoes professional training and background verification. Your home is in trusted hands.",
+            "Premium Quality Packing Materials: We use thick corrugated boxes, multi-layer bubble wrap, stretch film, foam sheets, and custom wooden crating for fragile and high-value items.",
+            "GPS-Tracked Vehicles: All our trucks are GPS-enabled. Track your belongings in real time and receive regular updates on WhatsApp throughout the journey.",
+            "Zero Hidden Charges Policy: The quote you receive after our inventory assessment is the final price. No add-ons on moving day, no surprise charges at delivery.",
+            "Comprehensive Transit Insurance: Full transit insurance covers all your goods — giving you complete peace of mind from pick-up to delivery.",
+            "On-Time Delivery Commitment: We know your time is valuable. Our scheduling is tight, our routes are pre-planned, and our record on punctuality speaks for itself."
+        ],
+        servicesTitle: "Our Moving Services in Rajahmundry",
+        services: [
+            {
+                title: "House Shifting in Rajahmundry",
+                description: "Full end-to-end home relocation — from packing your first box to unpacking at your new address. We handle 1BHK, 2BHK, 3BHK, and large villas with equal care."
+            },
+            {
+                title: "Office and Commercial Relocation",
+                description: "We minimise business downtime by planning and executing office moves — furniture, IT equipment, files, and all — with speed and precision."
+            },
+            {
+                title: "Car Transport in Rajahmundry",
+                description: "Door-to-door vehicle transportation using enclosed carrier trucks, with full insurance and GPS tracking throughout your car's journey."
+            },
+            {
+                title: "Bike Shifting Services",
+                description: "Two-wheelers are packed in custom protective covers and transported safely to any destination across India."
+            },
+            {
+                title: "Packing and Unpacking Services",
+                description: "Our expert packers handle every item — from fragile crockery to heavy wardrobes — using category-specific packing methods proven to prevent damage."
+            },
+            {
+                title: "Loading and Unloading Services",
+                description: "Professional loading and unloading with trained crew and the right equipment, minimising the risk of damage at both ends of your move."
+            },
+            {
+                title: "Storage and Warehousing",
+                description: "Need a gap between move-out and move-in? We offer secure, clean storage facilities with flexible duration options."
+            },
+            {
+                title: "Intercity and Interstate Moves",
+                description: "Rajahmundry to Hyderabad, Rajahmundry to Visakhapatnam, Rajahmundry to Vijayawada, Rajahmundry to Bangalore, Rajahmundry to Chennai — we run regular services on all major corridors."
+            }
+        ],
+        trustTitle: "PackersHub's Promise to Rajahmundry Customers",
+        trustText: "Relocation is not just about moving objects — it is about moving your life. Every item in your home carries a memory, a value, and a story. PackersHub's team approaches every move in Rajahmundry with this understanding. Our packers work with care, not just speed. Our drivers treat their load as if it were their own belongings. And our customer service team stays available throughout — before the move, during transit, and after delivery. More than 5,000 customers across South India have trusted PackersHub with their moves. Their consistently positive feedback is what drives us to raise our standards further every single day.",
+        promiseTitle: "Areas Served in Rajahmundry",
+        promisePoints: [
+            "Danavaipeta | Bhudevi Nagar | Innespeta | Morampudi | Rajahmundry Bypass Road",
+            "Pushkar Ghat | Godavari Bridge Area | Lakshmipuram Rajahmundry | Naspur | Bommuru Rajahmundry",
+            "Kambala Cheruvu | Kakinada Road Rajahmundry | T Nagar Rajahmundry | Rajamahendravaram | Satyanarayanapuram"
+        ],
+        faqTitle: "Frequently Asked Questions – Packers and Movers in Rajahmundry",
+        faqs: [
+            {
+                question: "Do you cover areas near the Godavari riverbanks in Rajahmundry?",
+                answer: "Yes, we serve all localities in Rajahmundry including areas close to the Godavari riverbanks. During monsoon season, we plan moves carefully to avoid flood-risk zones and use elevated storage where needed."
+            },
+            {
+                question: "Can you handle moves from ONGC quarters and government colonies in Rajahmundry?",
+                answer: "Absolutely. Government and corporate colony transfers are a significant part of our Rajahmundry operations. We handle all necessary coordination, including move scheduling and documentation support."
+            },
+            {
+                question: "How long does a Rajahmundry to Hyderabad move typically take?",
+                answer: "The distance from Rajahmundry to Hyderabad is approximately 350 km. A standard full-home move is usually completed in one day — loading in the morning, with delivery by evening or early next morning depending on traffic."
+            },
+            {
+                question: "Do you cover Kovvur, Nidadavolu, and other East Godavari towns from Rajahmundry?",
+                answer: "Yes, PackersHub covers Kovvur, Nidadavolu, Pithapuram, Samalkota, and other key towns across the East and West Godavari districts as part of our Rajahmundry service area."
+            }
+        ]
+    },
+    kozhikode: {
+        metaTitle: "Packers and Movers in Kozhikode – Trusted, Safe & On-Time Relocation",
+        metaDescription: "Looking for reliable packers and movers in Kozhikode? PackersHub offers professional house shifting, office relocation, car transport, and more across Kozhikode and Kerala. 10+ years of trusted service. Get a free quote today.",
+        focusKeywords: ["packers and movers in Kozhikode", "movers and packers Calicut", "house shifting Kozhikode", "home relocation Calicut", "office shifting Kozhikode", "car transport Kozhikode", "bike shifting Calicut", "furniture shifting Kozhikode", "household shifting Calicut", "local packers Kozhikode", "best packers movers Kozhikode", "trusted movers Calicut", "residential shifting Kozhikode", "commercial relocation Calicut", "packing unpacking services Kozhikode"],
+        aboutTitle: "Professional Packers and Movers in Kozhikode – PackersHub",
+        aboutText: [
+            "Kozhikode — or Calicut as it is known to history — is the City of Spices, a place where Arab traders once anchored and Vasco da Gama first set foot on Indian soil. Today, this proud North Kerala city is a thriving commercial and cultural hub, home to IIM Kozhikode, the National Institute of Technology Calicut, a buzzing Malabar business community, and thousands of NRI families with ties to the Gulf. Kozhikode's real estate market is among the most active in Kerala, and relocation — whether within the city or to other states — is a common part of life here. For anyone looking for packers and movers in Kozhikode, PackersHub brings the professionalism and care this heritage city deserves.",
+            "Kozhikode has a character unlike any other city — the old trading bazaars of Sweet Meat Street and Mittai Theruvu, the lively fish markets near the beach, and the expanding residential colonies in Mavoor Road, Feroke, and Kunnamangalam. Moving in this city is an experience in itself, and it needs movers who respect local customs and know local roads. PackersHub's Kozhikode team does exactly that — blending professional moving standards with the warmth and trust that Malabar culture is built on."
+        ],
+        uniqueTitle: "Why Choose PackersHub for Your Kozhikode Relocation?",
+        uniquePoints: [
+            "10+ Years of Moving Expertise: Our teams have been helping families and businesses relocate safely for over a decade. We have completed hundreds of moves in and around Kozhikode alone.",
+            "Trained and Background-Verified Crew: Every PackersHub team member undergoes professional training and background verification. Your home is in trusted hands.",
+            "Premium Quality Packing Materials: We use thick corrugated boxes, multi-layer bubble wrap, stretch film, foam sheets, and custom wooden crating for fragile and high-value items.",
+            "GPS-Tracked Vehicles: All our trucks are GPS-enabled. Track your belongings in real time and receive regular updates on WhatsApp throughout the journey.",
+            "Zero Hidden Charges Policy: The quote you receive after our inventory assessment is the final price. No add-ons on moving day, no surprise charges at delivery.",
+            "Comprehensive Transit Insurance: Full transit insurance covers all your goods — giving you complete peace of mind from pick-up to delivery.",
+            "On-Time Delivery Commitment: We know your time is valuable. Our scheduling is tight, our routes are pre-planned, and our record on punctuality speaks for itself."
+        ],
+        servicesTitle: "Our Moving Services in Kozhikode",
+        services: [
+            {
+                title: "House Shifting in Kozhikode",
+                description: "Full end-to-end home relocation — from packing your first box to unpacking at your new address. We handle 1BHK, 2BHK, 3BHK, and large villas with equal care."
+            },
+            {
+                title: "Office and Commercial Relocation",
+                description: "We minimise business downtime by planning and executing office moves — furniture, IT equipment, files, and all — with speed and precision."
+            },
+            {
+                title: "Car Transport in Kozhikode",
+                description: "Door-to-door vehicle transportation using enclosed carrier trucks, with full insurance and GPS tracking throughout your car's journey."
+            },
+            {
+                title: "Bike Shifting Services",
+                description: "Two-wheelers are packed in custom protective covers and transported safely to any destination across India."
+            },
+            {
+                title: "Packing and Unpacking Services",
+                description: "Our expert packers handle every item — from fragile crockery to heavy wardrobes — using category-specific packing methods proven to prevent damage."
+            },
+            {
+                title: "Loading and Unloading Services",
+                description: "Professional loading and unloading with trained crew and the right equipment, minimising the risk of damage at both ends of your move."
+            },
+            {
+                title: "Storage and Warehousing",
+                description: "Need a gap between move-out and move-in? We offer secure, clean storage facilities with flexible duration options."
+            },
+            {
+                title: "Intercity and Interstate Moves",
+                description: "Kozhikode to Bangalore, Kozhikode to Kochi, Kozhikode to Chennai, Kozhikode to Hyderabad, Kozhikode to Coimbatore — we run regular services on all major corridors."
+            }
+        ],
+        trustTitle: "PackersHub's Promise to Kozhikode Customers",
+        trustText: "Relocation is not just about moving objects — it is about moving your life. Every item in your home carries a memory, a value, and a story. PackersHub's team approaches every move in Kozhikode with this understanding. Our packers work with care, not just speed. Our drivers treat their load as if it were their own belongings. And our customer service team stays available throughout — before the move, during transit, and after delivery. More than 5,000 customers across South India have trusted PackersHub with their moves. Their consistently positive feedback is what drives us to raise our standards further every single day.",
+        promiseTitle: "Areas Served in Kozhikode",
+        promisePoints: [
+            "Mavoor Road | Feroke | Kunnamangalam | Nadakkavu | Palayam Kozhikode",
+            "West Hill | Chevayur | Kuttichira | Beypore | Calicut Beach Road",
+            "Ramanattukara | Kottooli | Thondayad | Civil Station Area | Medical College Road Kozhikode"
+        ],
+        faqTitle: "Frequently Asked Questions – Packers and Movers in Kozhikode",
+        faqs: [
+            {
+                question: "Do you cover Malappuram and Kannur from Kozhikode?",
+                answer: "Yes, PackersHub covers Malappuram, Kannur, Vatakara, Thalassery, and other key towns across North Kerala as part of our Kozhikode service area."
+            },
+            {
+                question: "Can you assist NRI families returning to Kozhikode from the Gulf?",
+                answer: "Yes, NRI homecoming moves are a specialty in Kozhikode. We handle everything from coordinating customs-cleared container goods to full home setup and furniture arrangement at your new address."
+            },
+            {
+                question: "How do you handle moves during the Kerala monsoon season in Kozhikode?",
+                answer: "Kozhikode receives heavy rainfall during June–August. We use waterproof packing, sealed cartons, and carefully plan routes to avoid flood-prone areas. Moves are never compromised on safety."
+            },
+            {
+                question: "Can you move office equipment from IIM Kozhikode campus or NIT Calicut area?",
+                answer: "Yes, we regularly handle institutional and corporate relocations in and around Kozhikode, including campus areas. We coordinate closely with facility managers for smooth, low-disruption moves."
+            }
+        ]
     }
 };
 
