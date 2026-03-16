@@ -8,8 +8,10 @@ import Services from '@/components/Services';
 import BlogPosts from '@/components/BlogPosts';
 import { getSiteSettings, getServices, getBlogPosts, getFAQs } from '@/lib/sanity-queries';
 import { getCityContent } from '@/lib/cityData';
+import { getCityMetadata, getCityName, getCityRegion } from "@/lib/seoUtils";
 import styles from './LocationPage.module.css';
 import Link from 'next/link';
+import TrackingLink from '@/components/TrackingLink';
 
 interface Props {
     params: Promise<{ city: string }>;
@@ -21,40 +23,25 @@ const formatCity = (slug: string) => {
     return cityName.charAt(0).toUpperCase() + cityName.slice(1).toLowerCase();
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { city: cityParam } = await params;
-    const content = getCityContent(cityParam);
-    const fullUrl = `https://www.packershub.in/${cityParam.toLowerCase()}`;
-
-    return {
-        title: content.metaTitle,
-        description: content.metaDescription,
-        keywords: content.focusKeywords,
-        alternates: {
-            canonical: fullUrl,
-        },
-        openGraph: {
-            title: content.metaTitle,
-            description: content.metaDescription,
-            url: fullUrl,
-            siteName: 'PackersHub',
-            locale: 'en_IN',
-            type: 'website',
-        }
-    };
+// Dynamic metadata — generates correct title for each city, prevents double title
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ city: string }>;
+}): Promise<Metadata> {
+    const { city } = await params;
+    return getCityMetadata(city);
 }
 
-// Pre-generate paths for common cities (optional but good for performance)
+// Pre-builds all 23 city pages at build time for best performance
 export async function generateStaticParams() {
-    const cities = [
-        'nellore', 'tirupati', 'bangalore', 'chennai', 'hyderabad', 'vijayawada',
-        'visakhapatnam', 'coimbatore', 'kochi', 'mysuru', 'madurai', 'hubballi',
-        'warangal', 'salem', 'thiruvananthapuram', 'thrissur', 'karimnagar',
-        'mangalore', 'guntur', 'kakinada', 'ongole', 'rajahmundry', 'kozhikode'
-    ];
-    return cities.map(city => ({
-        city: `${city}-packers-and-movers`
-    }));
+    return [
+        "nellore", "tirupati", "hyderabad", "bangalore", "chennai",
+        "vijayawada", "visakhapatnam", "coimbatore", "kochi", "mysuru",
+        "madurai", "hubballi", "warangal", "salem", "thiruvananthapuram",
+        "thrissur", "karimnagar", "mangalore", "guntur", "kakinada",
+        "ongole", "rajahmundry", "kozhikode",
+    ].map((city) => ({ city: `${city}-packers-and-movers` }));
 }
 
 export default async function LocationPage({ params }: Props) {
@@ -74,71 +61,81 @@ export default async function LocationPage({ params }: Props) {
         ...(sanityFaqs || []).slice(0, 3)
     ];
 
-    const pageUrl = `https://www.packershub.in/${cityParam}`;
-
-    // JSON-LD Schema for Location Page
-    const schema = {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "BreadcrumbList",
-                "@id": `${pageUrl}/#breadcrumb`,
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://www.packershub.in/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": `Packers and Movers in ${city}`,
-                        "item": pageUrl
-                    }
-                ]
-            },
-            {
-                "@type": "LocalBusiness",
-                "@id": `${pageUrl}/#localbusiness`,
-                "name": `PackersHub - Packers and Movers in ${city}`,
-                "image": "https://www.packershub.in/logo.png",
-                "url": pageUrl,
-                "telephone": siteSettings?.contactInfo?.phone || "+917730912913",
-                "priceRange": "₹₹",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": city,
-                    "addressRegion": "Andhra Pradesh", // Can be dynamic if you have state data
-                    "addressCountry": "IN"
-                },
-                "areaServed": {
-                    "@type": "City",
-                    "name": city
-                },
-                "description": content.metaDescription
-            },
-            {
-                "@type": "ProfessionalService",
-                "name": `Packers and Movers in ${city}`,
-                "description": content.metaDescription,
-                "url": pageUrl,
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": city,
-                    "addressRegion": "Andhra Pradesh",
-                    "addressCountry": "IN"
-                }
-            }
-        ]
-    };
+    const cityName = getCityName(cityParam);
+    const cityRegion = getCityRegion(cityParam);
 
     return (
         <>
+            {/* ===== CITY-SPECIFIC SEO SCHEMAS ===== */}
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@graph": [
+                            {
+                                "@type": "BreadcrumbList",
+                                "@id": `https://www.packershub.in/${cityParam}#breadcrumb`,
+                                itemListElement: [
+                                    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.packershub.in" },
+                                    { "@type": "ListItem", position: 2, name: "Locations", item: "https://www.packershub.in/#locations" },
+                                    { "@type": "ListItem", position: 3, name: `Packers and Movers in ${cityName}`, item: `https://www.packershub.in/${cityParam}` },
+                                ],
+                            },
+                            {
+                                "@type": ["LocalBusiness", "MovingCompany"],
+                                "@id": `https://www.packershub.in/${cityParam}#business`,
+                                name: "PackersHub",
+                                url: `https://www.packershub.in/${cityParam}`,
+                                telephone: "+917730912913",
+                                email: "info@packershub.com",
+                                image: "https://www.packershub.in/og-image.jpg",
+                                priceRange: "₹₹",
+                                address: {
+                                    "@type": "PostalAddress",
+                                    addressLocality: cityName,
+                                    addressRegion: cityRegion,
+                                    addressCountry: "IN",
+                                },
+                                aggregateRating: {
+                                    "@type": "AggregateRating",
+                                    ratingValue: "4.8",
+                                    reviewCount: "247",
+                                    bestRating: "5",
+                                    worstRating: "1",
+                                },
+                                hasOfferCatalog: {
+                                    "@type": "OfferCatalog",
+                                    name: `Moving Services in ${cityName}`,
+                                    itemListElement: [
+                                        "House Shifting", "Car Transport", "Bike Shifting",
+                                        "Office Relocation", "Packing and Unpacking", "Loading and Unloading",
+                                    ].map((serviceName) => ({
+                                        "@type": "Offer",
+                                        itemOffered: {
+                                            "@type": "Service",
+                                            name: `${serviceName} in ${cityName}`,
+                                            provider: { "@id": "https://www.packershub.in/#organization" },
+                                        },
+                                    })),
+                                },
+                                parentOrganization: { "@id": "https://www.packershub.in/#organization" },
+                            },
+                            // FAQPage schema
+                            ...(content.faqs?.length > 0 ? [{
+                                "@type": "FAQPage",
+                                "@id": `https://www.packershub.in/${cityParam}#faq`,
+                                mainEntity: content.faqs.map((faq: any) => ({
+                                    "@type": "Question",
+                                    name: faq.question,
+                                    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+                                })),
+                            }] : []),
+                        ],
+                    }),
+                }}
             />
+            {/* ===== END CITY SCHEMAS ===== */}
             <main className={styles.page}>
                 <Navigation />
 
@@ -205,7 +202,7 @@ export default async function LocationPage({ params }: Props) {
                                     <h3>Packers and Movers Charges in {city}</h3>
                                     <p>Charges depend on distance, quantity of goods, and service type. We offer affordable pricing with clear estimates and no hidden costs. Contact us or fill out the form today to get a free quote.</p>
                                     <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                        <a href="tel:+917730912913" className={styles.quoteBtn}>Get a Free Quote</a>
+                                        <TrackingLink type="call" href="tel:+917730912913" className={styles.quoteBtn}>Get a Free Quote</TrackingLink>
                                     </div>
                                 </div>
 
@@ -249,12 +246,12 @@ export default async function LocationPage({ params }: Props) {
                                             </div>
                                         </li>
                                     </ul>
-                                    <a href="tel:+917730912913" className={styles.contactBtn}>
+                                    <TrackingLink type="call" href="tel:+917730912913" className={styles.contactBtn}>
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                                             <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
                                         </svg>
                                         Call for Instant Quote
-                                    </a>
+                                    </TrackingLink>
                                 </div>
                             </aside>
                         </div>

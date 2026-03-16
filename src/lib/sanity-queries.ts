@@ -162,6 +162,7 @@ export async function getBlogPostBySlug(slug: string) {
         social
       },
       publishedAt,
+      _updatedAt,
       body,
       "relatedPosts": relatedPosts[]-> {
         _id,
@@ -169,7 +170,8 @@ export async function getBlogPostBySlug(slug: string) {
         slug,
         excerpt,
         mainImage,
-        publishedAt
+        publishedAt,
+        _updatedAt
       },
       seo,
       readTime

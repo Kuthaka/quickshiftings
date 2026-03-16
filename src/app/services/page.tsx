@@ -4,16 +4,23 @@ import { getServices, getSiteSettings } from '@/lib/sanity-queries'
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-    alternates: {
-        canonical: 'https://www.packershub.in/services',
-    },
-}
+  title: { absolute: "Packers and Movers Services – House, Car, Bike, Office Shifting | PackersHub" },
+  description: "PackersHub offers complete moving services across South India: house shifting, car transport, bike shifting, office relocation, packing & unpacking, loading & unloading. Call +917730912913.",
+  alternates: { canonical: "https://www.packershub.in/services" },
+  openGraph: {
+    title: "Packers and Movers Services | PackersHub",
+    description: "Complete relocation services across 23 cities in South India.",
+    url: "https://www.packershub.in/services",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+  },
+};
 import { urlFor } from '@/lib/sanity'
 import Link from 'next/link'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import styles from './ServicesPage.module.css'
 import { servicesData } from '@/lib/servicesData'
+import TrackingLink from '@/components/TrackingLink'
 
 // SVG Icons
 const HomeIcon = () => (<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>);
@@ -73,35 +80,26 @@ export default async function ServicesPage() {
         }))
         : fallbackServices;
 
-    const schema = {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "Our Moving Services",
-        "description": servicesData.intro.description,
-        "itemListElement": displayServices.map((service, index) => ({
-            "@type": "ListItem",
-            "position": index + 1,
-            "item": {
-                "@type": "Service",
-                "name": service.title,
-                "description": service.description,
-                "image": service.image,
-                "provider": {
-                    "@type": "LocalBusiness",
-                    "name": "PackersHub",
-                    "url": "https://www.packershub.in/"
-                }
-            }
-        }))
-    };
-
     return (
         <>
-            {/* ✅ Schema Injection */}
+            {/* ✅ SEO ItemList Schema */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(schema),
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "ItemList",
+                        name: "PackersHub Moving Services",
+                        numberOfItems: 6,
+                        itemListElement: [
+                            { "@type": "ListItem", position: 1, item: { "@type": "Service", name: "House Shifting", provider: { "@id": "https://www.packershub.in/#organization" }, areaServed: "South India" } },
+                            { "@type": "ListItem", position: 2, item: { "@type": "Service", name: "Car Transport", provider: { "@id": "https://www.packershub.in/#organization" }, areaServed: "South India" } },
+                            { "@type": "ListItem", position: 3, item: { "@type": "Service", name: "Bike Shifting", provider: { "@id": "https://www.packershub.in/#organization" }, areaServed: "South India" } },
+                            { "@type": "ListItem", position: 4, item: { "@type": "Service", name: "Commercial and Office Relocation", provider: { "@id": "https://www.packershub.in/#organization" }, areaServed: "South India" } },
+                            { "@type": "ListItem", position: 5, item: { "@type": "Service", name: "Packing and Unpacking", provider: { "@id": "https://www.packershub.in/#organization" }, areaServed: "South India" } },
+                            { "@type": "ListItem", position: 6, item: { "@type": "Service", name: "Loading and Unloading", provider: { "@id": "https://www.packershub.in/#organization" }, areaServed: "South India" } },
+                        ],
+                    }),
                 }}
             />
             <main className={styles.page}>
@@ -157,7 +155,8 @@ export default async function ServicesPage() {
                                                 </li>
                                             ))}
                                         </ul>
-                                        <a
+                                        <TrackingLink
+                                            type="whatsapp"
                                             href={`https://wa.me/917730912913?text=Hi! I'm interested in your ${service.title} service.`}
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -167,7 +166,7 @@ export default async function ServicesPage() {
                                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                                                 <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                                             </svg>
-                                        </a>
+                                        </TrackingLink>
                                     </div>
                                 </div>
                             ))}

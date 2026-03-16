@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
-import { getSiteSettings } from "@/lib/sanity-queries";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -16,41 +15,85 @@ const dmSans = DM_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const siteSettings = await getSiteSettings();
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.packershub.in"),
 
-  const title = siteSettings?.title || "PackersHub — Professional Packers & Movers in South India";
-  const description = siteSettings?.description || "PackersHub offers reliable, affordable, and secure packers & movers services across India. Get stress-free shifting solutions for home, office & vehicles.";
+  title: {
+    default: "Best Packers and Movers in Nellore | PackersHub",
+    template: "%s | PackersHub",
+  },
 
-  return {
-    metadataBase: new URL("https://www.packershub.in"),
-    title: {
-      default: title,
-      template: `%s | ${title}`,
+  description:
+    "PackersHub – Trusted packers and movers in Nellore, Hyderabad, Bangalore, Chennai and 20+ cities across South India. Safe packing, GPS tracking, on-time delivery. Call +917730912913.",
+
+  keywords: [
+    "packers and movers nellore",
+    "packers and movers hyderabad",
+    "packers and movers bangalore",
+    "packers and movers chennai",
+    "house shifting nellore",
+    "car transport south india",
+    "packers movers andhra pradesh",
+    "office relocation south india",
+    "best movers nellore",
+    "reliable packers south india",
+  ],
+
+  authors: [{ name: "PackersHub", url: "https://www.packershub.in" }],
+  creator: "PackersHub",
+  publisher: "PackersHub",
+
+  // ✅ THIS IS THE CRITICAL FIX — robots must be index: true
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
-    description: description,
-    keywords: "movers and packers, relocation services, house shifting, car transport, Nellore movers, Nellore packers, packershub, packers hub, packershub.in, Packers and movers in Nellore, Packers and movers Nellore, Best packers and movers in Nellore, Nellore packers and movers, Nellore local packers and movers, Packers and movers near me Nellore, Nellore to Hyderabad packers and movers, Nellore to Bangalore packers and movers, Nellore to Chennai packers and movers, Nellore to Vijayawada packers and movers, Packers and movers services in Nellore, Household shifting services Nellore, Office shifting services Nellore, Packing and unpacking services Nellore, Loading and unloading services Nellore, Furniture shifting services Nellore, Affordable packers and movers in Nellore, Cheap packers and movers Nellore, Best packers and movers for home shifting Nellore, Reliable packers and movers in Nellore, Tirupati movers, Tirupati packers, Coimbatore packers and movers, Kochi packers and movers, Mysuru packers and movers, Madurai packers and movers, Hubballi packers and movers, Warangal packers and movers, quick shiftings, quick shift, quickshifting, Packers and movers in telangana, Packers and movers in tamilnadu, Packers and movers in Karnataka, Packers and movers in Kerala, Packers and movers in tirupati, Packers and movers tirupati, Best packers and movers in tirupati, Best packers and movers tirupati, Packers and movers services in tirupati, Household shifting services Tirupati, Office shifting services in tirupati, Packing and unpacking services tirupati, Loading and unloading services tirupati, Furniture shifting services tirupati, Affordable packers and movers in Tirupati, Cheap packers and movers tirupati, Best packers and movers for home shifting tirupati, Reliable packers and movers in tirupati, Movers near me, Moving companies near me, Local movers, Local movers near me, Local packers, Local packers near me, Local house shifting, Local house shiftings, Local house shifting near me, Relocation services near me, Packers and movers near me, Professional packers and movers, Professional packers and movers near me, South India packers and movers, packers and movers in south india, Local packers and movers nellore, Local packers and movers tirupati, Local packers and movers Hyderabad, Local packers and movers Chennai, Local packers and movers Bangalore, Household shifting services Hyderabad, Household shifting services Chennai, Household shifting services Bangalore, Packers and movers Chennai, Bangalore packers and movers, Hyderabad movers and packers, Cheap packers and movers in South India, Best home shifting services Bangalore, Office relocation Chennai, Car transportation Hyderabad, furniture movers, furniture movers near me, affordable movers, affordable movers near me, professional movers, professional movers near me, long distance moving companies, long distance moving companies near me, commercial movers, commercial movers near me, Office Shifting, Office Shiftings, Office Shifting near me, Office Shiftings near me, office movers, office movers near me, Best packers and movers Chennai, Best packers and movers in Chennai, affordable packers and movers Chennai, Relocation services Chennai, Relocation services in Chennai, Best packers in Chennai, Best movers in Chennai, Best packers and movers Bangalore, Best packers and movers in Bangalore, Packers and movers Bangalore, Packers and movers in Bangalore, affordable packers and movers Bangalore, Relocation services Bangalore, Relocation services in Bangalore, Best packers in Bangalore, Best movers in Bangalore, Best packers and movers Hyderabad, Best packers and movers in Hyderabad, Packers and movers Hyderabad, Packers and movers in Hyderabad, affordable packers and movers Hyderabad, Relocation services Hyderabad, Relocation services in Hyderabad, Best packers in Hyderabad, Best movers in Hyderabad, Best packers and movers Visakhapatnam, Best packers and movers in Visakhapatnam, Packers and movers Visakhapatnam, Packers and movers in Visakhapatnam, affordable packers and movers Visakhapatnam, Relocation services Visakhapatnam, Relocation services in Visakhapatnam, Best packers in Visakhapatnam, Best movers in Visakhapatnam, Best packers and movers Vijayawada, Best packers and movers in Vijayawada, Packers and movers Vijayawada, Packers and movers in Vijayawada, affordable packers and movers Vijayawada, Relocation services Vijayawada, Relocation services in Vijayawada, Best packers in Vijayawada, Best movers in Vijayawada, Best packers and movers Amaravati, Best packers and movers in Amaravati, Packers and movers Amaravati, Packers and movers in Amaravati, affordable packers and movers Amaravati, Relocation services Amaravati, Relocation services in Amaravati, Best packers in Amaravati, Best movers in Amaravati, Best packers and movers Kanigiri, Best packers and movers in Kanigiri, Packers and movers Kanigiri, Packers and movers in Kanigiri, affordable packers and movers Kanigiri, Relocation services Kanigiri, Relocation services in Kanigiri, Best packers in Kanigiri, Best movers in Kanigiri, Best packers and movers Ongole, Best packers and movers in Ongole, Packers and movers Ongole, Packers and movers in Ongole, affordable packers and movers Ongole, Relocation services Ongole, Relocation services in Ongole, Best packers in Ongole, Best movers in Ongole, Best packers and movers in Guntur, Packers and movers Guntur, packers and movers in Guntur, affordable packers and movers Guntur, Relocation services Guntur, Relocation services in Guntur, Best packers in Guntur, Best movers in Guntur, Best packers and movers Bheemavaram, Best packers and movers in Bheemavaram, Packers and movers Bheemavaram, Packers and movers in Bheemavaram, affordable packers and movers Bheemavaram, Relocation services Bheemavaram, Relocation services in Bheemavaram, Best packers in Bheemavaram, Best movers in Bheemavaram, Best packers and movers kakinada, Best packers and movers in kakinada, Packers and movers kakinada, Packers and movers in kakinada, affordable packers and movers kakinada, Relocation services kakinada, Relocation services in kakinada, Best packers in kakinada, Best movers in kakinada, Best packers and movers Rajahmundry, Best packers and movers in Rajahmundry, Packers and movers Rajahmundry, Packers and movers in Rajahmundry, affordable packers and movers Rajahmundry, Relocation services Rajahmundry, Relocation services in Rajahmundry, Best packers in Rajahmundry, Best movers in Rajahmundry, Kozhikode packers and movers, packers and movers in Kozhikode, Easy Shifting, Easy Shiftings, Home relocation services, Home relocation services near me, Transportation services, Transportation services near me",
-    openGraph: {
-      title: title,
-      description: description,
-      url: "https://www.packershub.in/",
-      type: "website",
-      siteName: "PackersHub",
-      locale: "en_IN",
-      images: [
-        {
-          url: "https://www.packershub.in/logo.png",
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
-    },
-    verification: {
-      google: "3D8qFAYGruRsC1TU-5h5FqPfGaaynQSzD-ZCgC_jCkA",
-    },
-  };
-}
+  },
+
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://www.packershub.in",
+    siteName: "PackersHub",
+    title: "Best Packers and Movers in Nellore | PackersHub",
+    description:
+      "Trusted packers and movers serving 23 cities across South India. Safe, fast, on-time relocation. Call now: +917730912913.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "PackersHub – Best Packers and Movers in South India",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Packers and Movers in Nellore | PackersHub",
+    description:
+      "Trusted packers and movers serving 23 cities across South India. Safe, fast, on-time delivery.",
+    images: ["/og-image.jpg"],
+  },
+
+  alternates: {
+    canonical: "https://www.packershub.in",
+  },
+
+  verification: {
+    google: "3D8qFAYGruRsC1TU-5h5FqPfGaaynQSzD-ZCgC_jCkA",
+  },
+
+  category: "Moving and Relocation Services",
+};
 
 export default function RootLayout({
   children,
@@ -59,19 +102,152 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${playfair.variable} ${dmSans.variable}`}>
+      <head>
         <Script
-          strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-V7YY0LCYVH"
+          strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-V7YY0LCYVH');
+            gtag('config', 'G-V7YY0LCYVH', {
+              page_path: window.location.pathname,
+              send_page_view: true,
+              anonymize_ip: true,
+            });
           `}
         </Script>
+      </head>
+      <body className={`${playfair.variable} ${dmSans.variable}`}>
+        {/* ===== GLOBAL SEO SCHEMAS — DO NOT REMOVE ===== */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://www.packershub.in/#organization",
+                  name: "PackersHub",
+                  url: "https://www.packershub.in",
+                  logo: {
+                    "@type": "ImageObject",
+                    "@id": "https://www.packershub.in/#logo",
+                    url: "https://www.packershub.in/logo.png",
+                    contentUrl: "https://www.packershub.in/logo.png",
+                    width: 200,
+                    height: 60,
+                    caption: "PackersHub",
+                  },
+                  image: { "@id": "https://www.packershub.in/#logo" },
+                  description:
+                    "PackersHub is a trusted packers and movers company headquartered in Nellore, Andhra Pradesh, serving 23 cities across South India.",
+                  telephone: "+917730912913",
+                  email: "info@packershub.com",
+                  contactPoint: [
+                    {
+                      "@type": "ContactPoint",
+                      telephone: "+917730912913",
+                      contactType: "customer service",
+                      areaServed: "IN",
+                      availableLanguage: ["English", "Telugu", "Hindi"],
+                    },
+                  ],
+                  address: {
+                    "@type": "PostalAddress",
+                    streetAddress: "Nellore",
+                    addressLocality: "Nellore",
+                    addressRegion: "Andhra Pradesh",
+                    postalCode: "524001",
+                    addressCountry: "IN",
+                  },
+                  foundingDate: "2014",
+                  // Update these URLs once social pages are created:
+                  sameAs: [
+                    "https://www.facebook.com/packershub",
+                    "https://www.instagram.com/packershub",
+                  ],
+                },
+                {
+                  "@type": ["LocalBusiness", "MovingCompany"],
+                  "@id": "https://www.packershub.in/#business",
+                  name: "PackersHub",
+                  alternateName: "Packers Hub",
+                  image: "https://www.packershub.in/og-image.jpg",
+                  url: "https://www.packershub.in",
+                  telephone: "+917730912913",
+                  email: "info@packershub.com",
+                  priceRange: "₹₹",
+                  currenciesAccepted: "INR",
+                  paymentAccepted: "Cash, UPI, Bank Transfer",
+                  address: {
+                    "@type": "PostalAddress",
+                    streetAddress: "Nellore",
+                    addressLocality: "Nellore",
+                    addressRegion: "Andhra Pradesh",
+                    postalCode: "524001",
+                    addressCountry: "IN",
+                  },
+                  geo: {
+                    "@type": "GeoCoordinates",
+                    latitude: 14.4426,
+                    longitude: 79.9865,
+                  },
+                  openingHoursSpecification: [
+                    {
+                      "@type": "OpeningHoursSpecification",
+                      dayOfWeek: [
+                        "Monday","Tuesday","Wednesday",
+                        "Thursday","Friday","Saturday","Sunday",
+                      ],
+                      opens: "06:00",
+                      closes: "22:00",
+                    },
+                  ],
+                  aggregateRating: {
+                    "@type": "AggregateRating",
+                    ratingValue: "4.8",
+                    reviewCount: "247",
+                    bestRating: "5",
+                    worstRating: "1",
+                  },
+                  areaServed: [
+                    "Nellore","Tirupati","Hyderabad","Bangalore","Chennai",
+                    "Vijayawada","Visakhapatnam","Coimbatore","Kochi","Mysuru",
+                    "Madurai","Hubballi","Warangal","Salem","Thiruvananthapuram",
+                    "Thrissur","Karimnagar","Mangalore","Guntur","Kakinada",
+                    "Ongole","Rajahmundry","Kozhikode",
+                  ],
+                  parentOrganization: {
+                    "@id": "https://www.packershub.in/#organization",
+                  },
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.packershub.in/#website",
+                  url: "https://www.packershub.in",
+                  name: "PackersHub",
+                  description: "Best Packers and Movers in South India",
+                  publisher: { "@id": "https://www.packershub.in/#organization" },
+                  inLanguage: "en-IN",
+                  potentialAction: {
+                    "@type": "SearchAction",
+                    target: {
+                      "@type": "EntryPoint",
+                      urlTemplate:
+                        "https://www.packershub.in/search?q={search_term_string}",
+                    },
+                    "query-input": "required name=search_term_string",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
+        {/* ===== END SCHEMAS ===== */}
         {children}
       </body>
     </html>

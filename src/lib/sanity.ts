@@ -96,6 +96,7 @@ export interface BlogPost {
   }
   featured: boolean
   readTime?: number
+  _updatedAt?: string
 }
 
 export interface FAQ {

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getBlogPosts, getCategories, getSiteSettings, getServices } from '@/lib/sanity-queries'
 import { urlFor } from '@/lib/sanity'
 import Link from 'next/link'
@@ -6,6 +7,18 @@ import Footer from '@/components/Footer'
 import styles from './Blog.module.css'
 
 export const revalidate = 60
+
+export const metadata: Metadata = {
+  title: { absolute: "Moving Tips & Packing Guides Blog | PackersHub" },
+  description: "Read expert moving tips, packing guides, city-specific relocation advice, and cost-saving tricks from the PackersHub team. Your guide to a stress-free move.",
+  alternates: { canonical: "https://www.packershub.in/blog" },
+  openGraph: {
+    title: "Moving Tips & Relocation Guides | PackersHub Blog",
+    description: "Expert moving tips and city-specific relocation advice from PackersHub.",
+    url: "https://www.packershub.in/blog",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+  },
+};
 
 export default async function BlogPage() {
   const [posts, categories, siteSettings, services] = await Promise.all([

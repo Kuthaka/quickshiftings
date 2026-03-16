@@ -9,30 +9,27 @@ import PortableTextRenderer from '@/components/PortableTextRenderer'
 import styles from './BlogPost.module.css'
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params
-  const post = await getBlogPostBySlug(slug)
+  const { slug } = await params;
+  const post = await getBlogPostBySlug(slug);
 
   if (!post) {
-    return {}
+      return {};
   }
-
-  const title = post.seo?.metaTitle || post.title
-  const description = post.seo?.metaDescription || post.excerpt
-  const mainImage = post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined
 
   return {
-    title,
-    description,
+    title: { absolute: `${post.title} | PackersHub Blog` },
+    description: post.excerpt,
+    alternates: { canonical: `https://www.packershub.in/blog/${slug}` },
     openGraph: {
-      title,
-      description,
-      type: 'article',
+      type: "article",
+      title: post.title,
+      description: post.excerpt,
+      url: `https://www.packershub.in/blog/${slug}`,
       publishedTime: post.publishedAt,
-      authors: post.author?.name ? [post.author.name] : undefined,
-      images: mainImage ? [{ url: mainImage, width: 1200, height: 630, alt: title }] : undefined,
+      modifiedTime: post._updatedAt || post.publishedAt,
+      images: [{ url: post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : "/og-image.jpg" }],
     },
-    keywords: post.seo?.keywords
-  }
+  };
 }
 
 export const revalidate = 60
@@ -55,31 +52,36 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     day: 'numeric',
   })
 
+  // ✅ SEO BlogPosting Schema
   const schema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.excerpt,
-    "image": post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined,
-    "author": {
-      "@type": "Person",
-      "name": post.author?.name || "PackersHub Team",
-      "jobTitle": post.author?.role
+    "@id": `https://www.packershub.in/blog/${slug}`,
+    headline: post.title,
+    description: post.excerpt ?? post.title,
+    image: post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : "https://www.packershub.in/og-image.jpg",
+    datePublished: post.publishedAt,
+    dateModified: post._updatedAt ?? post.publishedAt,
+    inLanguage: "en-IN",
+    author: {
+        "@type": "Organization",
+        name: "PackersHub",
+        url: "https://www.packershub.in",
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "PackersHub",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.packershub.in/logo.png"
-      }
+    publisher: {
+        "@type": "Organization",
+        name: "PackersHub",
+        logo: { "@type": "ImageObject", url: "https://www.packershub.in/logo.png" },
     },
-    "datePublished": post.publishedAt,
-    "dateModified": post.publishedAt,
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://www.packershub.in/blog/${slug}`
-    }
+    mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `https://www.packershub.in/blog/${slug}`,
+    },
+    isPartOf: {
+        "@type": "Blog",
+        "@id": "https://www.packershub.in/blog",
+        name: "PackersHub Blog",
+    },
   };
 
   return (

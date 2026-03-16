@@ -1,11 +1,18 @@
 import type { Metadata } from 'next'
 import { getSiteSettings, getServices } from '@/lib/sanity-queries'
+import TrackingLink from '@/components/TrackingLink'
 
 export const metadata: Metadata = {
-    alternates: {
-        canonical: 'https://www.packershub.in/about',
-    },
-}
+  title: { absolute: "About PackersHub – Trusted Packers and Movers Since 2014 | Nellore" },
+  description: "PackersHub is a Nellore-based packers and movers company with 10+ years of experience, serving 23 cities across South India with safe, reliable, and affordable relocation services.",
+  alternates: { canonical: "https://www.packershub.in/about" },
+  openGraph: {
+    title: "About PackersHub – Trusted Packers and Movers",
+    description: "10+ years of experience. Based in Nellore, serving 23 cities across South India.",
+    url: "https://www.packershub.in/about",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+  },
+};
 import Link from 'next/link'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
@@ -130,7 +137,8 @@ export default async function AboutPage() {
                                     hassle-free experience, treating your belongings with the utmost care and precision.
                                 </p>
 
-                                <a
+                                <TrackingLink
+                                    type="whatsapp"
                                     href="https://wa.me/917730912913?text=Hi! I'd like to know more about your services."
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -140,7 +148,7 @@ export default async function AboutPage() {
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                                     </svg>
-                                </a>
+                                </TrackingLink>
                             </div>
                         </div>
 
