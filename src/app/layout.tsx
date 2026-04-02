@@ -104,7 +104,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-7TJ4FBXGC6"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17253356214"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -112,11 +112,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-7TJ4FBXGC6', {
-              page_path: window.location.pathname,
-              send_page_view: true,
-              anonymize_ip: true,
-            });
+            gtag('config', 'AW-17253356214');
           `}
         </Script>
       </head>
