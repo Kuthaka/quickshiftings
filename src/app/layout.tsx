@@ -103,18 +103,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17253356214"
-          strategy="afterInteractive"
+        {/* Using standard script tags so Google's verification bot can detect it in the raw HTML */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17253356214"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17253356214');
+            `,
+          }}
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17253356214');
-          `}
-        </Script>
       </head>
       <body className={`${playfair.variable} ${dmSans.variable}`}>
         {/* ===== GLOBAL SEO SCHEMAS — DO NOT REMOVE ===== */}
