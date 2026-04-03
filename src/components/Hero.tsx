@@ -33,7 +33,7 @@ const Hero = ({ title, subtitle, ctaText, phone, backgroundImage }: HeroProps) =
                     fill
                     priority={true}
                     fetchPriority="high"
-                    quality={85}
+                    quality={70}
                     sizes="100vw"
                     style={{ objectFit: "cover", objectPosition: "center" }}
                 />

@@ -183,6 +183,7 @@ const Services = ({ services: sanityServices, locations }: ServicesProps) => {
                                     src={service.image}
                                     alt={service.title}
                                     className={styles.cardImage}
+                                    loading="lazy"
                                 />
                             </div>
 

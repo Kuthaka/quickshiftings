@@ -82,6 +82,7 @@ const About = () => {
                                 src="/services/commercial-goods.png"
                                 alt="About PackersHub"
                                 className={styles.aboutImage}
+                                loading="lazy"
                             />
                             <div className={styles.experienceBadge}>
                                 <span className={styles.expNumber}>10+</span>

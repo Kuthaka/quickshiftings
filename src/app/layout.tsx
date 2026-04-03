@@ -7,12 +7,14 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -100,9 +102,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Using standard script tags so Google's verification bot can detect it in the raw HTML */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17253356214"></script>
-        <script
+      </head>
+      <body className={`${playfair.variable} ${dmSans.variable}`}>
+        {/* Optimized Google Ads tracking scripts */}
+        <Script strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=AW-17253356214" />
+        <Script
+          id="google-analytics"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -112,8 +118,6 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body className={`${playfair.variable} ${dmSans.variable}`}>
         {/* ===== GLOBAL SEO SCHEMAS — DO NOT REMOVE ===== */}
         <script
           type="application/ld+json"
