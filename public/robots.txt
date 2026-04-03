@@ -1,38 +1,8 @@
-# PackersHub robots.txt
-# Last updated: March 2026
-
 User-agent: *
 Allow: /
+Allow: /packers-movers/
+Allow: /blog/
 Disallow: /api/
-Disallow: /_next/
-Disallow: /admin/
 Disallow: /studio/
-
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-# AI Crawlers — allow for AI-driven discovery
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
+Disallow: /admin/
 Sitemap: https://www.packershub.in/sitemap.xml
