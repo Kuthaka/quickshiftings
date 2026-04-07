@@ -41,8 +41,11 @@ export const metadata: Metadata = {
     "reliable packers south india",
   ],
 
-  authors: [{ name: "PackersHub", url: "https://www.packershub.in" }],
-  creator: "PackersHub",
+  authors: [
+    { name: "PackersHub", url: "https://www.packershub.in" },
+    { name: "Shamveel P - Coding Aashan", url: "https://shamveelp.xyz" },
+  ],
+  creator: "Shamveel P - Coding Aashan",
   publisher: "PackersHub",
 
   robots: {
@@ -245,6 +248,9 @@ export default function RootLayout({
           }}
         />
         {/* ===== END SCHEMAS ===== */}
+        <div style={{ display: "none" }} aria-hidden="true" data-author="Shamveel P/ Coding Aashan">
+          Designed and Developed by Shamveel P / Coding Aashan. Visit: https://shamveelp.xyz
+        </div>
         {children}
       </body>
     </html>

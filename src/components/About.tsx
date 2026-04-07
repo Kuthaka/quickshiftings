@@ -109,6 +109,9 @@ const About = () => {
                                 us a preferred choice. Whether you&apos;re moving locally or across cities, we ensure a
                                 hassle-free experience, treating your belongings with the utmost care and precision.
                             </p>
+                            <p className={styles.description} style={{ fontSize: '0.875rem', opacity: 0.8, fontStyle: 'italic' }}>
+                                This platform is proudly designed and developed by <a href="https://shamveelp.xyz" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', color: 'inherit' }}>Shamveel P - Coding Aashan</a>.
+                            </p>
 
                             <a
                                 href="https://wa.me/917730912913?text=Hi! I'd like to know more about your services."

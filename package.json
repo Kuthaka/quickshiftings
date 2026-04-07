@@ -2,6 +2,8 @@
   "name": "trustedmovers",
   "version": "0.1.0",
   "private": true,
+  "author": "Shamveel P - Coding Aashan",
+  "url": "https://www.packershub.in",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

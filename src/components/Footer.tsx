@@ -148,6 +148,9 @@ const Footer = ({ phone, email, address, services }: FooterProps) => {
                 <div className={styles.bottom}>
                     <div className={styles.footerBottomContent}>
                         <p>© 2026 PackersHub. All rights reserved.</p>
+                        <p style={{ marginTop: '0.5rem', fontSize: '0.875rem', opacity: 0.8 }}>
+                            Designed & Developed by <a href="https://shamveelp.xyz" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Shamveel P - Coding Aashan</a>
+                        </p>
                         <div className={styles.areasWeServe}>
                             <span>Areas we serve:</span>
                             {[
