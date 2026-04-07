@@ -135,90 +135,90 @@ export const servicesData = {
             name: "Chennai",
             description: "Coastal-appropriate packing protecting against humidity, serving from Mylapore to OMR."
         },
-        {
-            name: "Hyderabad",
-            description: "Serving IT corridors and residential areas with knowledge of local regulations."
-        },
-        {
-            name: "Vijayawada",
-            description: "Handling commercial and residential moves in this major hub."
-        },
-        {
-            name: "Visakhapatnam",
-            description: "Handling port city logistics and coastal challenges."
-        },
-        {
-            name: "Tirupati",
-            description: "Sensitive, adaptable moving services respecting local customs."
-        },
-        {
-            name: "Nellore",
-            description: "Professional service with local knowledge throughout the district."
-        },
-        {
-            name: "Coimbatore",
-            description: "Efficient relocation services in the Manchester of South India, covering all major hubs."
-        },
-        {
-            name: "Kochi",
-            description: "Seamless moving solutions in the Queen of the Arabian Sea, expert handling in coastal areas."
-        },
-        {
-            name: "Mysuru",
-            description: "Reliable and careful packing and moving services in the Heritage City."
-        },
-        {
-            name: "Madurai",
-            description: "Expert relocation services in the Temple City, ensuring safe and timely deliveries."
-        },
-        {
-            name: "Hubballi",
-            description: "Professional packing and moving solutions in the commercial hub of North Karnataka."
-        },
-        {
-            name: "Warangal",
-            description: "Reliable and expert relocation services in the historic city of Telangana."
-        },
-        {
-            name: "Salem",
-            description: "Professional packing and moving services in the Steel City of Tamil Nadu."
-        },
-        {
-            name: "Thiruvananthapuram",
-            description: "Expert relocation solutions in the capital city of Kerala, ensuring safe transit."
-        },
-        {
-            name: "Thrissur",
-            description: "Careful and efficient moving services in the Cultural Capital of Kerala."
-        },
-        {
-            name: "Karimnagar",
-            description: "Reliable relocation services for residential and commercial needs in Karimnagar."
-        },
-        {
-            name: "Mangalore",
-            description: "Safe and timely packing and moving solutions in the port city of Karnataka."
-        },
-        {
-            name: "Guntur",
-            description: "Professional residential and office shifting services throughout Guntur."
-        },
-        {
-            name: "Kakinada",
-            description: "Expert packing and moving services in the Fertilizer City, covering all areas."
-        },
-        {
-            name: 'Ongole',
-            description: 'Top-tier movers in Ongole for residential relocation.'
-        },
-        {
-            name: 'Rajahmundry',
-            description: 'Dependable moving solutions in Rajahmundry for all needs.'
-        },
-        {
-            name: 'Kozhikode',
-            description: 'Trusted relocation services across Kozhikode.'
-        }
+        // {
+        //     name: "Hyderabad",
+        //     description: "Serving IT corridors and residential areas with knowledge of local regulations."
+        // },
+        // {
+        //     name: "Vijayawada",
+        //     description: "Handling commercial and residential moves in this major hub."
+        // },
+        // {
+        //     name: "Visakhapatnam",
+        //     description: "Handling port city logistics and coastal challenges."
+        // },
+        // {
+        //     name: "Tirupati",
+        //     description: "Sensitive, adaptable moving services respecting local customs."
+        // },
+        // {
+        //     name: "Nellore",
+        //     description: "Professional service with local knowledge throughout the district."
+        // },
+        // {
+        //     name: "Coimbatore",
+        //     description: "Efficient relocation services in the Manchester of South India, covering all major hubs."
+        // },
+        // {
+        //     name: "Kochi",
+        //     description: "Seamless moving solutions in the Queen of the Arabian Sea, expert handling in coastal areas."
+        // },
+        // {
+        //     name: "Mysuru",
+        //     description: "Reliable and careful packing and moving services in the Heritage City."
+        // },
+        // {
+        //     name: "Madurai",
+        //     description: "Expert relocation services in the Temple City, ensuring safe and timely deliveries."
+        // },
+        // {
+        //     name: "Hubballi",
+        //     description: "Professional packing and moving solutions in the commercial hub of North Karnataka."
+        // },
+        // {
+        //     name: "Warangal",
+        //     description: "Reliable and expert relocation services in the historic city of Telangana."
+        // },
+        // {
+        //     name: "Salem",
+        //     description: "Professional packing and moving services in the Steel City of Tamil Nadu."
+        // },
+        // {
+        //     name: "Thiruvananthapuram",
+        //     description: "Expert relocation solutions in the capital city of Kerala, ensuring safe transit."
+        // },
+        // {
+        //     name: "Thrissur",
+        //     description: "Careful and efficient moving services in the Cultural Capital of Kerala."
+        // },
+        // {
+        //     name: "Karimnagar",
+        //     description: "Reliable relocation services for residential and commercial needs in Karimnagar."
+        // },
+        // {
+        //     name: "Mangalore",
+        //     description: "Safe and timely packing and moving solutions in the port city of Karnataka."
+        // },
+        // {
+        //     name: "Guntur",
+        //     description: "Professional residential and office shifting services throughout Guntur."
+        // },
+        // {
+        //     name: "Kakinada",
+        //     description: "Expert packing and moving services in the Fertilizer City, covering all areas."
+        // },
+        // {
+        //     name: 'Ongole',
+        //     description: 'Top-tier movers in Ongole for residential relocation.'
+        // },
+        // {
+        //     name: 'Rajahmundry',
+        //     description: 'Dependable moving solutions in Rajahmundry for all needs.'
+        // },
+        // {
+        //     name: 'Kozhikode',
+        //     description: 'Trusted relocation services across Kozhikode.'
+        // }
     ],
     locations: {
         telangana: ['Hyderabad', 'Warangal', 'Karimnagar'],
